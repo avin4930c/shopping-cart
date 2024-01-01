@@ -1,0 +1,15 @@
+.navlink-text {
+    font-size: 20px;
+    padding: 0px 50px;
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+    .navlink-text {
+        padding: 0px;
+    }
+}
