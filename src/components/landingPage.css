@@ -8,6 +8,12 @@
     padding-bottom: 0px;
 }
 
+img {
+    width: auto;
+    height: 800px;
+    object-fit: cover;
+}
+
 @media (max-width: 768px) {
     .navlink-text {
         padding: 0px;

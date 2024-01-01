@@ -32,24 +32,24 @@ function LandingPage() {
           </Navbar.Collapse>
           </div>
       </Navbar>
-
-      <Carousel slide={false}>
-      <Carousel.Item>
-        <ExampleCarouselImage text="First slide" />
+      <div className="container">
+      <Carousel>
+      <Carousel.Item interval={1000}>
+        <img src="https://online.maryville.edu/wp-content/uploads/sites/97/2021/03/MVU-BFADM-2020-Q4-Skyscraper-Future-of-Video-Games-Trends-Technology-Types-header-v2.jpg" alt="" />
         <Carousel.Caption>
           <h3>First slide label</h3>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Second slide" />
+      <Carousel.Item interval={500}>
+        <img src="https://media.cnn.com/api/v1/images/stellar/prod/i-stock-1287493837-1.jpg?c=16x9&q=h_833,w_1480,c_fill" alt="" />
         <Carousel.Caption>
           <h3>Second slide label</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Third slide" />
+      <Carousel.Item interval={100}>
+        <img src="https://assets-prd.ignimgs.com/2023/10/20/bestreviewedgames2023-blogroll-1-1697834842855.jpg" alt="" />
         <Carousel.Caption>
           <h3>Third slide label</h3>
           <p>
@@ -58,6 +58,10 @@ function LandingPage() {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
+    </div>
+
+    
+    
     </>
   );
 }
