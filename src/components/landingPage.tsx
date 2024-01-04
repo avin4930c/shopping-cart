@@ -2,6 +2,7 @@ import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
+import { Footer } from './comp/footer';
 import './landingPage.css';
 
 function LandingPage() {
@@ -156,6 +157,10 @@ function LandingPage() {
     </Accordion>
     
     </div>
+      </section>
+
+      <section>
+        <Footer />
       </section>
 
 
