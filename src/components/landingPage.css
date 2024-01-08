@@ -1,12 +1,35 @@
+:root {
+    --background-color: #A088B1;
+    --primary-color: #010b13;
+    --secondary-color: #AD4DFF;
+    --third-color: #428BB1;
+    --text-color: #A088B1;
+}
+
 body::before {
     display: block;
     content: "";
     height: 50px;
 }
 
+.navBar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
 .navlink-text {
     font-size: 20px;
     padding: 0px 50px;
+}
+
+.navlink-text:hover {
+    color: var(--secondary-color) !important;
+}
+
+.search-button {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .navbar {
@@ -37,6 +60,12 @@ img {
     img {
         min-height: 500px;
         max-height: 600px;
+    }
+}
+
+@media (min-width: 768px) {
+    .navlink-text:hover {
+        transform: matrix(1.1, 0, 0, 1.1, 0, 0);
     }
 }
 

@@ -53,7 +53,7 @@ function Footer() {
     </section>
 
     <div className="text-center p-3" style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
-      <a className="text-dark" href=""></a>
+      <a className="text-dark" href="">This is developed by: </a>
     </div>
   </footer>
         </>

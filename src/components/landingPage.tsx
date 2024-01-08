@@ -8,19 +8,19 @@ import './landingPage.css';
 function LandingPage() {
   return (
     <>
-      <Navbar expand="lg" className="bg-secondary px-5 fixed-top">
+      <Navbar expand="lg" className="-secondary px-5 fixed-top navBar">
         <div className="container">
-          <Navbar.Brand href="#" className="p-2 text-light"><h2>Game Inn</h2></Navbar.Brand>
+          <Navbar.Brand href="#" className="p-2 text-light"><h2>Game <span style={{color: "var(--secondary-color)"}}>Inn</span></h2></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex mx-auto" style={{ minWidth: "20vw" }}>
+            <Form className="d-flex mx-auto nav-form" style={{ minWidth: "20vw" }}>
               <FormControl
                 type="search"
                 placeholder="Search games"
-                className="mx-2 input-lg"
+                className="mx-2"
                 aria-label="Search"
               />
-              <Button variant="outline-primary">Search</Button>
+              <Button variant="primary" className="search-button">Search</Button>
             </Form>
             <Nav
               className="ms-auto my-2 pe-auto"
@@ -37,8 +37,8 @@ function LandingPage() {
       </Navbar>
 
       {/* Carousel */}
-      <section className="justify-content-center align-items-center carousel-main bg-primary">
-        <div className="bg-info">
+      <section className="justify-content-center align-items-center carousel-main -primary">
+        <div className="-info">
           <Carousel>
             <Carousel.Item interval={1000}>
               <img src="src\assets\cropped-7b341ce30f442716773f605a7c45c064 (1).jpg" alt="" />
@@ -68,23 +68,23 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-info text-light p-5">
+      <section className="-info text-light p-5 sign-up-form">
         <div className="container">
           <div className="d-md-flex justify-content-between align-items-center">
             <h2 className="mx-2">Signup for Game News</h2>
             <div className="input-group input-group-md news-input" style={{ maxWidth: "400px" }}>
               <input type="text" className="form-control" placeholder="Enter the Email address"
                 aria-label="Recipient's username" aria-describedby="button-addon2" />
-              <button className="btn text-bg-dark" type="button" id="button-addon2">Button</button>
+              <button className="btn text--dark" type="button" id="button-addon2">Button</button>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="top-games p-3 bg-primary">
+      <section className="top-games p-3 -primary">
         <header className="top-games-header h2 my-3 mb-3 text-center text-sm-start">Top Games</header>
         <hr className="hr"></hr>
-        <div className="row g-4 bg-primary px-5">
+        <div className="row g-4 -primary px-5">
           <div className="col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-5">
             <Card>
               <Card.Img style={{ width: 'auto', height: "min(350px, 40vh)" }} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
@@ -114,7 +114,7 @@ function LandingPage() {
         </div>
       </section>
 
-      <section id="questions" className="bg-info">
+      <section id="questions" className="-info accordion">
         <div className="h2 text-center p-5">Frequently Asked Questions</div>
         <div className="container pb-5">
       <Accordion flush>
