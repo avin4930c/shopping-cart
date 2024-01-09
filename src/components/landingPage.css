@@ -1,9 +1,9 @@
 :root {
-    --background-color: #A088B1;
+    --background-color: #8800ff;
     --primary-color: #010b13;
     --secondary-color: #AD4DFF;
     --third-color: #428BB1;
-    --text-color: #A088B1;
+    --text-color: #8500e4;
 }
 
 body::before {
@@ -47,6 +47,35 @@ img {
     height: 750px;
 }
 
+.sign-up-form {
+    background-color: var(--secondary-color);
+}
+
+.top-games {
+    background-color: var(--primary-color);
+}
+
+.card-main {
+    max-height: 80vh;
+    background-image: linear-gradient(to right top, #8500ff, #9020ff, #9b31ff, #a440ff, #ad4dff);
+    border: 5px solid var(--secondary-color);
+}
+
+.card-main:hover {
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+/* .card-image {
+    width: 100%;
+    height: min(350px, 40vh);
+    max-height: 350px;
+} */
+
+#questions {
+    background-color: var(--background-color);
+}
+
 @media (max-width: 768px) {
     .navlink-text {
         padding: 0px;
@@ -60,6 +89,12 @@ img {
     img {
         min-height: 500px;
         max-height: 600px;
+    }
+
+    .top-games-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
     }
 }
 
