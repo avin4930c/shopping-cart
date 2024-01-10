@@ -1,0 +1,31 @@
+.product-page-main {
+    display: grid;
+    grid-template-columns: 320px auto;
+    color: white;
+    font-size: 24px;
+}
+
+.side-bar {
+    padding: 50px 0px;
+    background-color: var(--primary-color);
+}
+
+.category-title {
+    color: gold;
+}
+
+.category-sub-titles {
+    color: white;
+    cursor: pointer;
+}
+
+.title-active, .category-sub-titles:hover {
+    color: var(--secondary-color);
+    background-color: gold;
+    border-radius: 5px;
+    border: 2px solid var(--primary-color);
+}
+
+.product-display {
+    background-color: var(--secondary-color);
+}
