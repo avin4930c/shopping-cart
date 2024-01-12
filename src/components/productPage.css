@@ -29,3 +29,14 @@
 .product-display {
     background-color: var(--secondary-color);
 }
+
+.card-product-main {
+    width: max(auto, 350px);
+    height: auto;
+    font-size: 20px;
+}
+
+.card-product-main img {
+    width: 100%;
+    height: 300px;
+}
