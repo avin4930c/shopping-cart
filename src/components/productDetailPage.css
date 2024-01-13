@@ -1,0 +1,26 @@
+.product-details-main {
+    display: flex;
+    padding: 20px 0px;
+}
+.product-details-carousel {
+    max-width: 65%;
+    margin-right: 20px;
+}
+
+.product-details-carousel img {
+    border: 0px solid transparent;
+    border-radius: 10px;
+}
+
+.product-details-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 35%;
+    background-color: black;
+}
+
+.product-info-main {
+    border: 5px solid blue;
+    border-radius: 5px;
+}
