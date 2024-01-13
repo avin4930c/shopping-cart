@@ -61,9 +61,9 @@ function ProductPage() {
                     </div>
                 </section>
                 <section className="product-display">
-                    <div className="product-main-title d-flex justify-content-between p-5">
-                        <div className="product-main-left text-dark">
-                            <h1>Most Popular</h1>
+                    <div className="product-main-title d-flex justify-content-between py-3 pt-5 px-5">
+                        <div className="product-main-left">
+                            <h1 style={{color: "violet"}}>Most Popular</h1>
                         </div>
                         <div className="product-main-right">
                             <select>
@@ -75,99 +75,174 @@ function ProductPage() {
                         </div>
                     </div>
                     <section className="product-container mx-5">
-                        <div className="container-xxxl" style={{border: "2px solid black"}}>
-                        <div className="row text-start d-flex justify-content-center">
-                            <div className="m-1 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                        <div className="container-xxxl">
+                        <div className="row d-flex justify-content-center g-2 gy-4">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title iilaf aiofwj iawfioj </Card.Title>
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
                                         <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text>
+                                        <Card.Text className="m-0 mt-1">
                                             <span><i className="bi bi-windows mx-1"></i></span>
                                             <span><i className="bi bi-playstation mx-1"></i></span>
                                             <span><i className="bi bi-xbox mx-1"></i></span>
                                             <span><i className="bi bi-phone mx-1"></i></span>
                                         </Card.Text>
-
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <div className="m-2 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                    <Card.Img style={{maxHeight: "400px"}} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
+                                        </Card.Text>
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
                                         </Card.Text>
 
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <div className="m-2 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                    <Card.Img style={{maxHeight: "400px"}} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
                                         </Card.Text>
-
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <div className="m-2 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
                                         </Card.Text>
-
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <div className="m-2 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
                                         </Card.Text>
-
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <div className="m-2 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
                                         </Card.Text>
-
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </div>
-                            <div className="m-2 col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
                                 <Card className="card-product-main">
                                     <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                     <Card.Body>
-                                        <Card.Title>Card Title</Card.Title>
-                                        <Card.Text>
-                                            Some quick example text to build on the card title and make up the
-                                            bulk of the card's content.
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
                                         </Card.Text>
-
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
+                                <Card className="card-product-main">
+                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                    <Card.Body>
+                                        <Card.Title className="product-title">Elden Ring</Card.Title>
+                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                        <Card.Text className="m-0 mt-1">
+                                            <span><i className="bi bi-windows mx-1"></i></span>
+                                            <span><i className="bi bi-playstation mx-1"></i></span>
+                                            <span><i className="bi bi-xbox mx-1"></i></span>
+                                            <span><i className="bi bi-phone mx-1"></i></span>
+                                        </Card.Text>
+                                        <Card.Text className="mt-3">
+                                            <div className="price-cart d-flex justify-content-between">
+                                                <div className="price-left">INR 5000</div>
+                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                            </div>
+                                        </Card.Text>
                                     </Card.Body>
                                 </Card>
                             </div>
