@@ -3,14 +3,17 @@ import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import Carousel from 'react-bootstrap/Carousel';
 import './productDetailPage.css';
+import { NavBar } from './comp/navBar';
+import { Link } from 'react-router-dom';
 
 function ProductDetailPage() {
     const [open, setOpen] = useState(false);
     return (
         <>
+        <NavBar pageName="productDetailPage" />
             <section className="product-details px-5">
                 <div className="navBar-product text-white d-flex justify-content-between align-items-center px-3">
-                    <div className="navBar-left" style={{ fontSize: "24px" }}><i className="bi bi-arrow"></i>Store</div>
+                    <div className="navBar-left" style={{ fontSize: "24px" }}><Link to="../"><i className="bi bi-arrow-left px-1"></i> Store</Link></div>
                     <div className="navBar-right" style={{ fontSize: "48px" }}>Elden Ring</div>
                 </div>
                 <section className="product-details-main">

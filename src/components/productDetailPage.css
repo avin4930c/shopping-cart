@@ -1,7 +1,22 @@
+body {
+    background-color: var(--primary-color);
+}
+
+body::before {
+    display: block;
+    content: "";
+    height: 60px;
+}
+
 .product-details {
     width: 100%;
-    min-height: 93vh;
+    min-height: 100%;
     background-color: var(--primary-color);
+}
+
+.navBar-left:hover {
+    color: var(--secondary-color);
+    cursor: pointer;
 }
 
 .product-details-main {
@@ -40,7 +55,7 @@
 }
 
 .product-info-details {
-
+    
 }
 
 .product-more-info {

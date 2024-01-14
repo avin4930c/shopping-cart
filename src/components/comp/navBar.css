@@ -1,0 +1,24 @@
+.navBar {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.navlink-text {
+    font-size: 20px;
+    padding: 0px 50px;
+}
+
+.navlink-text:hover {
+    color: var(--secondary-color) !important;
+}
+
+.search-button {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.navbar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}

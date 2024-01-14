@@ -1,9 +1,12 @@
 import Card from 'react-bootstrap/Card';
 import './productPage.css';
+import { NavBar } from './comp/navBar';
+import { Link } from 'react-router-dom';
 
 function ProductPage() {
     return (
         <>
+        <NavBar pageName="productPage" />
             <section className="product-page-main">
                 <section className="side-bar px-5">
                     <div className="container">
@@ -63,7 +66,7 @@ function ProductPage() {
                 <section className="product-display">
                     <div className="product-main-title d-flex justify-content-between py-3 pt-5 px-5">
                         <div className="product-main-left">
-                            <h1 style={{color: "violet"}}>Most Popular</h1>
+                            <h1 style={{ color: "violet" }}>Most Popular</h1>
                         </div>
                         <div className="product-main-right">
                             <select>
@@ -76,177 +79,179 @@ function ProductPage() {
                     </div>
                     <section className="product-container mx-5">
                         <div className="container-xxxl">
-                        <div className="row d-flex justify-content-center g-2 gy-4">
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img style={{maxHeight: "400px"}} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
+                            <div className="row d-flex justify-content-center g-2 gy-4">
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Link to="/productDetailPage">
+                                        <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                        </Link>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img style={{ maxHeight: "400px" }} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
 
-                                    </Card.Body>
-                                </Card>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img style={{ maxHeight: "400px" }} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                                <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
+                                    <Card className="card-product-main">
+                                        <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
+                                        <Card.Body>
+                                            <Card.Title className="product-title">Elden Ring</Card.Title>
+                                            <Card.Text className="m-0">4.71 / 5</Card.Text>
+                                            <Card.Text className="m-0 mt-1">
+                                                <span><i className="bi bi-windows mx-1"></i></span>
+                                                <span><i className="bi bi-playstation mx-1"></i></span>
+                                                <span><i className="bi bi-xbox mx-1"></i></span>
+                                                <span><i className="bi bi-phone mx-1"></i></span>
+                                            </Card.Text>
+                                            <Card.Text className="mt-3">
+                                                <div className="price-cart d-flex justify-content-between">
+                                                    <div className="price-left">INR 5000</div>
+                                                    <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                </div>
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
                             </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img style={{maxHeight: "400px"}} variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                            <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{minWidth: "200px"}}>
-                                <Card className="card-product-main">
-                                    <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
-                                    <Card.Body>
-                                        <Card.Title className="product-title">Elden Ring</Card.Title>
-                                        <Card.Text className="m-0">4.71 / 5</Card.Text>
-                                        <Card.Text className="m-0 mt-1">
-                                            <span><i className="bi bi-windows mx-1"></i></span>
-                                            <span><i className="bi bi-playstation mx-1"></i></span>
-                                            <span><i className="bi bi-xbox mx-1"></i></span>
-                                            <span><i className="bi bi-phone mx-1"></i></span>
-                                        </Card.Text>
-                                        <Card.Text className="mt-3">
-                                            <div className="price-cart d-flex justify-content-between">
-                                                <div className="price-left">INR 5000</div>
-                                                <div className="cart-right"><i className="bi bi-cart"></i></div>
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                </Card>
-                            </div>
-                        </div>
                         </div>
                     </section>
                 </section>

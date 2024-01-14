@@ -1,41 +1,15 @@
-import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import { Footer } from './comp/footer';
 import './landingPage.css';
+import { NavBar } from './comp/navBar';
 
 function LandingPage() {
   return (
     <>
     {/* NavBar */}
-      <Navbar expand="lg" className="-secondary px-5 fixed-top navBar" id="navbarMain">
-        <div className="container">
-          <Navbar.Brand href="#" className="p-2 text-light"><h2>Game <span style={{ color: "var(--secondary-color)" }}>Inn</span></h2></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Form className="d-flex mx-auto nav-form" style={{ minWidth: "20vw" }}>
-              <FormControl
-                type="search"
-                placeholder="Search games"
-                className="mx-2"
-                aria-label="Search"
-              />
-              <Button variant="primary" className="search-button">Search</Button>
-            </Form>
-            <Nav
-              className="ms-auto my-2 pe-auto"
-              style={{ maxHeight: '100px' }}
-              navbarScroll
-            >
-              <Nav.Link href="#about-us" className="text-light navlink-text mx-2">About Us</Nav.Link>
-              <Nav.Link href="#questions" className="text-light navlink-text mx-2">Questions</Nav.Link>
-              <Nav.Link href="#store" className="text-light navlink-text mx-2">Store</Nav.Link>
-              <Nav.Link href="#cart" className="text-light navlink-text mx-2">Cart <i className="bi bi-cart"></i></Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </div>
-      </Navbar>
+    <NavBar pageName="landingPage" />
 
       {/* Carousel */}
       <section className="justify-content-center align-items-center carousel-main -primary">
