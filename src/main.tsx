@@ -7,18 +7,20 @@ import './index.css'
 import { ProductPage } from './components/productPage.tsx';
 import { LandingPage } from './components/landingPage.tsx';
 import { ProductDetailPage } from './components/productDetailPage.tsx';
+import { ErrorPage } from './components/errorPage.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+    errorElement: <ErrorPage />
   },
   {
     path: 'productPage',
     element: <ProductPage />,
   },
   {
-    path: 'productDetailPage',
+    path: 'productPage/:productId',
     element: <ProductDetailPage />,
   },
 ]);

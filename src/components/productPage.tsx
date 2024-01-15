@@ -82,7 +82,7 @@ function ProductPage() {
                             <div className="row d-flex justify-content-center g-2 gy-4">
                                 <div className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
                                     <Card className="card-product-main">
-                                        <Link to="/productDetailPage">
+                                        <Link to="/productPage/hello">
                                         <Card.Img variant="top" src="https://m.media-amazon.com/images/I/6110RSDn3PL.jpg" />
                                         <Card.Body>
                                             <Card.Title className="product-title">Elden Ring</Card.Title>

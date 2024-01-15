@@ -31,7 +31,12 @@ function NavBar({ pageName }: { pageName: string}) {
                 </>
               )
               }
-              <Link to="/ProductPage"><Nav.Link href="#store" className="text-light navlink-text mx-2">Store</Nav.Link></Link>
+              {(pageName === "landingPage") || (
+                <>
+                <Link to="/"><Nav.Link href="/" className='text-light navlink-text mx-2'>Home</Nav.Link></Link>
+                </>
+              )}
+              <Link to="/productPage"><Nav.Link href="#store" className="text-light navlink-text mx-2">Store</Nav.Link></Link>
               <Nav.Link href="#cart" className="text-light navlink-text mx-2">Cart <i className="bi bi-cart"></i></Nav.Link>
             </Nav>
           </Navbar.Collapse>
