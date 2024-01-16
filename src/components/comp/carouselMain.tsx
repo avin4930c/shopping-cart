@@ -6,7 +6,7 @@ function CarouselMain() {
                 <div className="-info">
                     <Carousel>
                         <Carousel.Item interval={1000}>
-                            <img src="src\assets\cropped-7b341ce30f442716773f605a7c45c064 (1).jpg" alt="" />
+                            <img src="\src\assets\cropped-7b341ce30f442716773f605a7c45c064 (1).jpg" alt="" />
                             <Carousel.Caption>
                                 <h3>Level Up Your Gaming Experience!</h3>
                                 <p>🎮 Explore the Latest Releases and Must-Have Titles 🚀</p>

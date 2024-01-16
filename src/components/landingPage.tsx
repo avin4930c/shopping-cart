@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 
 type apiDataProps = {
   name: string,
+  id: number,
   description: string,
   background_image: string,
 }
@@ -22,7 +23,6 @@ function LandingPage() {
       try {
         const apiData = await getApiDetails({ size: 12 });
         setData(apiData);
-        console.log(data);
       }
       catch (error) {
         console.error('Error getting data', error);
@@ -61,7 +61,7 @@ function LandingPage() {
         <div className="top-games-container row g-4 -primary px-5">
 
           {data.map((item, index) => (
-              <div key={index} className="col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6"><Link to="/productPage/hello">
+              <div key={index} className="col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6"><Link to={`/productPage/${item.id}`}>
                 <Card className="card-main">
                   <Card.Img style={{ width: 'auto', height: 'min(350px, 40vh)', maxHeight: '350=px' }} variant="top" src={item.background_image} />
                   <Card.Body>
