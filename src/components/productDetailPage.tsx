@@ -35,7 +35,7 @@ function ProductDetailPage() {
         async function fetchData() {
             try {
                 const apiData = await getApiDetails({ id: Number(productId) });
-                const screenshotsData = await getApiDetails({ id: Number(productId), screenshot: true });
+                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots" });
                 setData(apiData);
                 setScreenshots(screenshotsData);
                 console.log(data, "Hello");
