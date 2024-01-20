@@ -1,9 +1,34 @@
+import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './productPage.css';
 import { NavBar } from './comp/navBar';
 import { Link } from 'react-router-dom';
 
+type productPageProps = {
+
+}
+
 function ProductPage() {
+    const [category, setCategory] = useState<string | null>("");
+
+    useEffect(() => {
+        const categoryButtons = document.querySelectorAll(".category-sub-titles");
+        categoryButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                categoryButtons.forEach((button1) => {
+                    button1.classList.remove("title-active");
+                });
+                button.classList.add("title-active");
+                setCategory(button.id);
+                console.log(category);
+            });
+        })
+    }, [category]);
+
+    // function handleCategory(e: React.MouseEvent<HTMLButtonElement>) {
+    //     setCategory(e.currentTarget.id);
+    //     console.log(category);
+    // }
     return (
         <>
         <NavBar pageName="productPage" />
@@ -12,7 +37,7 @@ function ProductPage() {
                     <div className="container">
                         <div className="category-main">
                             <div className="category-title text-start">Categorize By</div>
-                            <div className="category-sub-titles px-2 my-2 text-nowrap">
+                            <div id="by-mostPopular" className="category-sub-titles px-2 my-2 text-nowrap">
                                 <i className="bi bi-star"></i> Most Popular
                             </div>
                         </div>
@@ -20,13 +45,13 @@ function ProductPage() {
                     <div className="container">
                         <div className="category-main">
                             <div className="category-title">By Year</div>
-                            <div className="category-sub-titles title-active px-2 my-2 text-nowrap">
+                            <div id="by-2024" className="category-sub-titles title-active px-2 my-2 text-nowrap">
                                 <i className="bi bi-calendar"></i> Best of 2024
                             </div>
-                            <div className="category-sub-titles px-2 my-2 text-nowrap">
+                            <div id="by-2023" className="category-sub-titles px-2 my-2 text-nowrap">
                                 <i className="bi bi-calendar"></i> Best of 2023
                             </div>
-                            <div className="category-sub-titles px-2 my-2 text-nowrap">
+                            <div id="by-2022" className="category-sub-titles px-2 my-2 text-nowrap">
                                 <i className="bi bi-calendar"></i> Best of 2022
                             </div>
                         </div>
@@ -34,16 +59,16 @@ function ProductPage() {
                     <div className="container">
                         <div className="category-main">
                             <div className="category-title">By Platform</div>
-                            <div className="category-sub-titles px-4 my-2 text-nowrap">
+                            <div id="by-windows" className="category-sub-titles px-4 my-2 text-nowrap">
                                 <i className="bi bi-windows"></i> Windows
                             </div>
-                            <div className="category-sub-titles px-4 my-2 text-nowrap">
+                            <div id="by-andriod" className="category-sub-titles px-4 my-2 text-nowrap">
                                 <i className="bi bi-phone"></i> Android
                             </div>
-                            <div className="category-sub-titles px-4 my-2 text-nowrap">
+                            <div id="by-Xbox" className="category-sub-titles px-4 my-2 text-nowrap">
                                 <i className="bi bi-xbox"></i> Xbox
                             </div>
-                            <div className="category-sub-titles px-4 my-2 text-nowrap">
+                            <div id="by-PlayStation" className="category-sub-titles px-4 my-2 text-nowrap">
                                 <i className="bi bi-playstation"></i> PlayStation
                             </div>
                         </div>
@@ -51,10 +76,10 @@ function ProductPage() {
                     <div className="container">
                         <div className="category-main">
                             <div className="category-title">By Genres</div>
-                            <div className="category-sub-titles px-4 my-2 text-nowrap">
+                            <div id="by-action" className="category-sub-titles px-4 my-2 text-nowrap">
                                 <i className="bi bi-controller"></i> Action
                             </div>
-                            <div className="category-sub-titles px-4 my-2 text-nowrap">
+                            <div id="by-strategy" className="category-sub-titles px-4 my-2 text-nowrap">
                                 <i className="bi bi-controller"></i> Strategy
                             </div>
                             <div className="category-sub-titles px-4 my-2 text-nowrap">
@@ -66,7 +91,7 @@ function ProductPage() {
                 <section className="product-display">
                     <div className="product-main-title d-flex justify-content-between py-3 pt-5 px-5">
                         <div className="product-main-left">
-                            <h1 style={{ color: "violet" }}>Most Popular</h1>
+                            <h1 style={{ color: "violet" }}>{category}</h1>
                         </div>
                         <div className="product-main-right">
                             <select>
