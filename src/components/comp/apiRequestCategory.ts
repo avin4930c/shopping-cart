@@ -6,7 +6,7 @@ type apiRequestCategoryProps = {
     mainTitle: string;
 }
 
-function apiRequestCategory(category: string) {
+function apiRequestCategory(category: string) { //to return data about search details to navigate and fetch data accordingly using rawg-Api
     const categoryMain = category.split("-")[1];
     let mainTitle = "";
     if (category.split("-")[2] === undefined) {
