@@ -70,6 +70,10 @@ function ProductPage() {
         document.getElementById(`${category}`)?.classList.add("title-active");
         categoryButtons.forEach((button) => {
             button.addEventListener("click", () => {
+                setOrdering("");
+                const select = document.getElementById("select-options") as HTMLSelectElement;
+                select.value = "Popular";
+
                 categoryButtons.forEach((button1) => {
                     button1.classList.remove("title-active");
                 });
@@ -171,7 +175,7 @@ function ProductPage() {
                                     <div key={index} className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
                                         <Card className="card-product-main">
                                             <Link to={`/productPage/${item.id}`}>
-                                            <Card.Img variant="top" src={item.background_image} />
+                                            <Card.Img variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}
                                             <Card.Body>
                                                 <Card.Title className="product-title">{item.name}</Card.Title>
                                                 <Card.Text className="m-0">{item.rating} / 5</Card.Text>
