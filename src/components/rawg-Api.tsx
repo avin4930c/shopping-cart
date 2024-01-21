@@ -39,7 +39,7 @@ async function getApiDetails({size = 10, id, searchTitle, searchDetails} : getAp
                 mainQuery += "";
         }
     }
-    console.log(mainQuery, "hello");
+    // console.log(mainQuery, "hello");
     const response = await fetch(mainQuery);
     const data = await response.json();
     return (id ? data : data.results);

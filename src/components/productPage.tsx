@@ -22,9 +22,27 @@ type searchDetailsProps = {
 }
 
 function ProductPage() {
-    const [category, setCategory] = useState<string | null>("by-mostPopular");
-    const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({searchTitle: "mostPopular", mainTitle: "Most Popular"});
+    const [category, setCategory] = useState<string>("by-mostPopular");
+    const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({searchTitle: "", mainTitle: ""});
     const [data, setData] = useState<productPageProps[]>([]);
+
+    // function handleCategory(button: Element) {
+    //     setCategory(button.id);
+    //     localStorage.setItem("category", button.id);
+    // }
+
+    useEffect(() => {
+        const storageCategory = localStorage.getItem("category");
+        
+        if (!storageCategory) {
+            localStorage.setItem("category", category);
+        }
+        else {
+            const requestData = apiRequestCategory(storageCategory);
+            setCategory(storageCategory);
+            setSearchDetails((requestData) || { searchTitle: "mostPopular", mainTitle: "Most Popular" });
+        }
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -36,11 +54,17 @@ function ProductPage() {
                 console.error("Error getting data", error);
             }
         }
-        fetchData();
-    }, [category])
+        if (searchDetails.mainTitle) {
+            fetchData();
+          }
+    }, [searchDetails.mainTitle]);
 
     useEffect(() => {
         const categoryButtons = document.querySelectorAll(".category-sub-titles");
+        categoryButtons.forEach((button1) => {
+            button1.classList.remove("title-active");
+        });
+        document.getElementById(`${category}`)?.classList.add("title-active");
         categoryButtons.forEach((button) => {
             button.addEventListener("click", () => {
                 categoryButtons.forEach((button1) => {
@@ -48,19 +72,18 @@ function ProductPage() {
                 });
                 button.classList.add("title-active");
                 setCategory(button.id);
-                setSearchDetails((apiRequestCategory(button.id)) || { searchTitle: "", mainTitle: "" });
+                localStorage.setItem("category", button.id);
+                setSearchDetails((apiRequestCategory(button.id)) || { searchTitle: "mostPopular", mainTitle: "Most Popular" });
             });
         })
     }, [category]);
 
     // useEffect(() => {
-    //     console.log(category, searchDetails, "Hello");
-    // }, [searchDetails])
+    //     const currentActiveButton = document.getElementById(`${category}`);
+    //     currentActiveButton?.classList.add("title-active");
+    //     console.log(data, "data", category, searchDetails, "Category Details");
+    // }, [data])
 
-    // function handleCategory(e: React.MouseEvent<HTMLButtonElement>) {
-    //     setCategory(e.currentTarget.id);
-    //     console.log(category);
-    // }
     return (
         <>
         <NavBar pageName="productPage" />
@@ -69,7 +92,7 @@ function ProductPage() {
                     <div className="container">
                         <div className="category-main">
                             <div className="category-title text-start">Categorize By</div>
-                            <div id="by-mostPopular" className="category-sub-titles title-active px-2 my-2 text-nowrap">
+                            <div id="by-mostPopular" className="category-sub-titles px-2 my-2 text-nowrap">
                                 <i className="bi bi-star"></i> Most Popular
                             </div>
                         </div>
