@@ -12,13 +12,13 @@ type getApiDetailsProps = {
     size?: number;
     id?: number;
     year?: number;
+    ordering?: string;
     screenshot?: boolean;
     searchTitle?: string;
     searchDetails?: searchDetailsProps;
 }
 
-async function getApiDetails({size = 10, id, searchTitle, searchDetails} : getApiDetailsProps) {
-    const ordering = "";
+async function getApiDetails({size = 10, id, searchTitle, searchDetails, ordering} : getApiDetailsProps) {
     let mainQuery = id ? (!searchTitle ? `https://api.rawg.io/api/games/${id}?key=${key}` : `https://api.rawg.io/api/games/${id}`) : `https://api.rawg.io/api/games?key=${key}&page_size=${size}`;
     if (searchTitle) {
         switch (searchTitle) {
@@ -39,7 +39,8 @@ async function getApiDetails({size = 10, id, searchTitle, searchDetails} : getAp
                 mainQuery += "";
         }
     }
-    // console.log(mainQuery, "hello");
+    ordering ? mainQuery += `&ordering=${ordering}` : mainQuery += "";
+    console.log(mainQuery, "hello");
     const response = await fetch(mainQuery);
     const data = await response.json();
     return (id ? data : data.results);

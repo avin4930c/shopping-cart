@@ -24,15 +24,12 @@ type searchDetailsProps = {
 function ProductPage() {
     const [category, setCategory] = useState<string>("by-mostPopular");
     const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({searchTitle: "", mainTitle: ""});
+    const [ordering, setOrdering] = useState<string>("");
     const [data, setData] = useState<productPageProps[]>([]);
-
-    // function handleCategory(button: Element) {
-    //     setCategory(button.id);
-    //     sessionStorage.setItem("category", button.id);
-    // }
 
     useEffect(() => {
         const storageCategory = sessionStorage.getItem("category");
+        const storageOrdering = sessionStorage.getItem("ordering");
         
         if (!storageCategory) {
             sessionStorage.setItem("category", category);
@@ -42,12 +39,18 @@ function ProductPage() {
             setCategory(storageCategory);
             setSearchDetails((requestData) || { searchTitle: "mostPopular", mainTitle: "Most Popular" });
         }
+        if (!storageOrdering) {
+            sessionStorage.setItem("ordering", ordering);
+        }
+        else {
+            setOrdering(storageOrdering);
+        }
     }, []);
 
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await getApiDetails({size: 12, searchTitle: searchDetails.searchTitle, searchDetails: searchDetails});
+                const response = await getApiDetails({size: 12, searchTitle: searchDetails.searchTitle, searchDetails: searchDetails, ordering: ordering});
                 setData(response);
             }
             catch(error) {
@@ -57,7 +60,7 @@ function ProductPage() {
         if (searchDetails.mainTitle) {
             fetchData();
           }
-    }, [searchDetails.mainTitle]);
+    }, [searchDetails.mainTitle, ordering]);
 
     useEffect(() => {
         const categoryButtons = document.querySelectorAll(".category-sub-titles");
@@ -75,7 +78,7 @@ function ProductPage() {
                 sessionStorage.setItem("category", button.id);
                 setSearchDetails((apiRequestCategory(button.id)) || { searchTitle: "mostPopular", mainTitle: "Most Popular" });
             });
-        })
+        });
     }, [category]);
 
     // useEffect(() => {
@@ -149,9 +152,13 @@ function ProductPage() {
                             <h1 style={{ color: "violet" }}>{searchDetails.mainTitle}</h1>
                         </div>
                         <div className="product-main-right">
-                            <select>
-                                <option>Top Rated</option>
-                                <option>Least Rated</option>
+                            <select id ="select-options" onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                                setOrdering(e.target.selectedOptions[0]?.id);
+                                sessionStorage.setItem("ordering", e.target.selectedOptions[0].id);
+                            }}>
+                                <option id = "" selected>Popular</option>
+                                <option id = "-rating">Top Rated</option> {/*change the options*/}
+                                <option id = "rating">Least Rated</option>
                                 <option>Highest Price</option>
                                 <option>Lowest Price</option>
                             </select>
