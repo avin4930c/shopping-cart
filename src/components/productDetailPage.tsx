@@ -84,7 +84,7 @@ function ProductDetailPage() {
                                         </Button>
                                         <Collapse in={open}>
                                             <div id="example-collapse-text" className="text-start">
-                                                <p className='p-0 m-0'>Website: <a href={data?.website}>{data?.website || "Not Available"}</a></p>
+                                                <p className='p-0 m-0'>Website: <a href={data?.website} target='_blank'>{data?.website || "Not Available"}</a></p>
                                                 <p className="p-0 m-0">Rating: {data?.rating} / 5</p>
                                                 <p className="p-0 m-0">Released: {data?.released || "Not Available"}</p>
                                                 <p className="p-0 m-0">Developer: {data?.developers[0]?.name || "Not Available"}</p>

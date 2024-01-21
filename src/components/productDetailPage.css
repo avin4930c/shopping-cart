@@ -26,12 +26,14 @@ body::before {
 }
 .product-details-carousel {
     max-width: 65%;
+    min-width: 65%;
     margin-right: 20px;
 }
 
 .product-details-carousel img {
     max-height: 750px;
     min-height: 750px;
+    width: 100%;
     object-fit: cover;
     border: 0px solid transparent;
     border-radius: 10px;

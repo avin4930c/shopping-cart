@@ -8,11 +8,12 @@ import { ProductPage } from './components/productPage.tsx';
 import { LandingPage } from './components/landingPage.tsx';
 import { ProductDetailPage } from './components/productDetailPage.tsx';
 import { ErrorPage } from './components/errorPage.tsx';
+import { CartPage } from './components/cartPage.tsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage />,
+    element: <CartPage />,
     errorElement: <ErrorPage />
   },
   {
