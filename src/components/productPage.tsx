@@ -28,14 +28,14 @@ function ProductPage() {
 
     // function handleCategory(button: Element) {
     //     setCategory(button.id);
-    //     localStorage.setItem("category", button.id);
+    //     sessionStorage.setItem("category", button.id);
     // }
 
     useEffect(() => {
-        const storageCategory = localStorage.getItem("category");
+        const storageCategory = sessionStorage.getItem("category");
         
         if (!storageCategory) {
-            localStorage.setItem("category", category);
+            sessionStorage.setItem("category", category);
         }
         else {
             const requestData = apiRequestCategory(storageCategory);
@@ -72,7 +72,7 @@ function ProductPage() {
                 });
                 button.classList.add("title-active");
                 setCategory(button.id);
-                localStorage.setItem("category", button.id);
+                sessionStorage.setItem("category", button.id);
                 setSearchDetails((apiRequestCategory(button.id)) || { searchTitle: "mostPopular", mainTitle: "Most Popular" });
             });
         })
