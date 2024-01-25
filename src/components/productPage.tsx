@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './productPage.css';
 import { NavBar } from './comp/navBar';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { getApiDetails } from './rawg-Api';
 import { apiRequestCategory } from './comp/apiRequestCategory';
+import { CartContext } from '../App';
 
 type productPageProps = {
     name: string,
@@ -23,14 +24,15 @@ type searchDetailsProps = {
 
 function ProductPage() {
     const [category, setCategory] = useState<string>("by-mostPopular");
-    const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({searchTitle: "", mainTitle: ""});
+    const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({ searchTitle: "", mainTitle: "" });
     const [ordering, setOrdering] = useState<string>("");
     const [data, setData] = useState<productPageProps[]>([]);
+    const { handleCartItems } = useContext(CartContext);
 
     useEffect(() => {
         const storageCategory = sessionStorage.getItem("category");
         const storageOrdering = sessionStorage.getItem("ordering");
-        
+
         if (!storageCategory) {
             sessionStorage.setItem("category", category);
         }
@@ -50,16 +52,16 @@ function ProductPage() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await getApiDetails({size: 12, searchTitle: searchDetails.searchTitle, searchDetails: searchDetails, ordering: ordering});
+                const response = await getApiDetails({ size: 12, searchTitle: searchDetails.searchTitle, searchDetails: searchDetails, ordering: ordering });
                 setData(response);
             }
-            catch(error) {
+            catch (error) {
                 console.error("Error getting data", error);
             }
         }
         if (searchDetails.mainTitle) {
             fetchData();
-          }
+        }
     }, [searchDetails.mainTitle, ordering]);
 
     useEffect(() => {
@@ -70,9 +72,10 @@ function ProductPage() {
         document.getElementById(`${category}`)?.classList.add("title-active");
         categoryButtons.forEach((button) => {
             button.addEventListener("click", () => {
-                setOrdering("");
                 const select = document.getElementById("select-options") as HTMLSelectElement;
                 select.value = "Popular";
+                setOrdering("mostPopular");
+                sessionStorage.setItem("ordering", "mostPopular");
 
                 categoryButtons.forEach((button1) => {
                     button1.classList.remove("title-active");
@@ -93,7 +96,7 @@ function ProductPage() {
 
     return (
         <>
-        <NavBar pageName="productPage" />
+            <NavBar pageName="productPage" />
             <section className="product-page-main">
                 <section className="side-bar px-5">
                     <div className="container">
@@ -156,13 +159,13 @@ function ProductPage() {
                             <h1 style={{ color: "violet" }}>{searchDetails.mainTitle}</h1>
                         </div>
                         <div className="product-main-right">
-                            <select id ="select-options" onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
+                            <select id="select-options" onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                                 setOrdering(e.target.selectedOptions[0]?.id);
                                 sessionStorage.setItem("ordering", e.target.selectedOptions[0].id);
                             }}>
-                                <option id = "" selected>Popular</option>
-                                <option id = "-rating">Top Rated</option> {/*change the options*/}
-                                <option id = "rating">Least Rated</option>
+                                <option id="mostPopular" selected={ordering === "mostPopular"}>Popular</option>
+                                <option id="-rating" selected={ordering === "-rating"}>Top Rated</option> {/*change the options*/}
+                                <option id="rating" selected={ordering === "rating"}>Least Rated</option>
                                 <option>Highest Price</option>
                                 <option>Lowest Price</option>
                             </select>
@@ -174,25 +177,27 @@ function ProductPage() {
                                 {data.map((item, index) => (
                                     <div key={index} className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
                                         <Card className="card-product-main">
-                                            <Link to={`/productPage/${item.id}`}>
+                                        <Link to={`/productPage/${item.id}`}>
                                             <Card.Img variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}
+                                            </Link>
                                             <Card.Body>
-                                                <Card.Title className="product-title">{item.name}</Card.Title>
-                                                <Card.Text className="m-0">{item.rating} / 5</Card.Text>
-                                                <Card.Text className="m-0 mt-1">
-                                                    <span><i className="bi bi-windows mx-1"></i></span>
-                                                    <span><i className="bi bi-playstation mx-1"></i></span>
-                                                    <span><i className="bi bi-xbox mx-1"></i></span>
-                                                    <span><i className="bi bi-phone mx-1"></i></span>
-                                                </Card.Text>
+                                                <Link to={`/productPage/${item.id}`}>
+                                                    <Card.Title className="product-title">{item.name}</Card.Title>
+                                                    <Card.Text className="m-0">{item.rating} / 5</Card.Text>
+                                                    <Card.Text className="m-0 mt-1">
+                                                        <span><i className="bi bi-windows mx-1"></i></span>
+                                                        <span><i className="bi bi-playstation mx-1"></i></span>
+                                                        <span><i className="bi bi-xbox mx-1"></i></span>
+                                                        <span><i className="bi bi-phone mx-1"></i></span>
+                                                    </Card.Text>
+                                                </Link>
                                                 <Card.Text className="mt-3">
                                                     <div className="price-cart d-flex justify-content-between">
                                                         <div className="price-left">INR 5000</div>
-                                                        <div className="cart-right"><i className="bi bi-cart"></i></div>
+                                                        <div className="cart-right" onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}><i className="bi bi-cart"></i></div>
                                                     </div>
                                                 </Card.Text>
                                             </Card.Body>
-                                            </Link>
                                         </Card>
                                     </div>
                                 ))}
@@ -224,6 +229,7 @@ function ProductPage() {
                     </section>
                 </section>
             </section>
+            <Outlet />
 
         </>
     )

@@ -1,19 +1,9 @@
-body::before {
-    display: block;
-    content: "";
-    height: 0px;
-}
-
 .cart-main {
-    width: 30%;
+    width: 40%;
     min-width: 300px;
     background-color: var(--secondary-color);
     color: white;
     min-height: 100vh;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 2;
 }
 
 .cart-title {
@@ -28,8 +18,8 @@ body::before {
 }
 
 .cart-item {
-    height: 20vh;
-    min-height: 160px;
+    height: 10vh;
+    min-height: 150px;
     color: black;
     background-color: #ffd700;
     display: flex;

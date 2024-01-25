@@ -9,8 +9,11 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getApiDetails } from './rawg-Api';
 import parse from 'html-react-parser';
+import { useContext } from 'react';
+import { CartContext } from '../App';
 
 type apiDataProps = {
+    id: number,
     name: string,
     description: string,
     background_image: string,
@@ -30,6 +33,7 @@ function ProductDetailPage() {
     const [screenshots, setScreenshots] = useState<apiDataProps>();
     const { productId } = useParams();
     const [open, setOpen] = useState(false);
+    const {handleCartItems} = useContext(CartContext);
 
     useEffect(() => {
         async function fetchData() {
@@ -94,7 +98,7 @@ function ProductDetailPage() {
                                 </div>
                                 <div className="product-price-cart text-white d-flex justify-content-between p-4">
                                     <div className="product-price">INR 5000</div>
-                                    <div className="product-cart">Add to cart <i className="bi bi-cart"></i></div>
+                                    <button className="product-cart btn btn-primary" onClick={() => handleCartItems({id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}`})}>Add to cart <i className="bi bi-cart"></i></button>
                                 </div>
                             </div>
                         </section>

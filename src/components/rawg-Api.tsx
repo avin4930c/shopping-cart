@@ -1,4 +1,4 @@
-const key = "aa4f3e05636f41e8b72550ea24ccd3ec";
+const key = "a29a8d297fb740429bc885bf74d311e8";
 
 type searchDetailsProps = {
     searchTitle: string,
@@ -40,7 +40,7 @@ async function getApiDetails({size = 10, id, searchTitle, searchDetails, orderin
         }
     }
     ordering ? mainQuery += `&ordering=${ordering}` : mainQuery += "";
-    console.log(mainQuery, "hello");
+    console.log(mainQuery, "Main query");
     const response = await fetch(mainQuery);
     const data = await response.json();
     return (id ? data : data.results);
