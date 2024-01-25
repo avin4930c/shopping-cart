@@ -27,7 +27,9 @@ function ProductPage() {
     const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({ searchTitle: "", mainTitle: "" });
     const [ordering, setOrdering] = useState<string>("");
     const [data, setData] = useState<productPageProps[]>([]);
-    const { handleCartItems } = useContext(CartContext);
+    const { cartItems, handleCartItems } = useContext(CartContext);
+
+    const cartItemsID = cartItems?.map((items) => items.id);
 
     useEffect(() => {
         const storageCategory = sessionStorage.getItem("category");
@@ -194,7 +196,7 @@ function ProductPage() {
                                                 <Card.Text className="mt-3">
                                                     <div className="price-cart d-flex justify-content-between">
                                                         <div className="price-left">INR 5000</div>
-                                                        <div className="cart-right" onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}><i className="bi bi-cart"></i></div>
+                                                        <div className="cart-right" onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h3 text-black px-1 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
                                                     </div>
                                                 </Card.Text>
                                             </Card.Body>

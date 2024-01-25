@@ -79,6 +79,10 @@ body::before {
     border-radius: 5px;
 }
 
+/* .price-cart .cart-right {
+    color: black;
+} */
+
 @media (max-width: 767px) {
     .product-page-main {
         grid-template-columns: 1fr;

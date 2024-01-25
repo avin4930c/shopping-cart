@@ -41,7 +41,7 @@ function App() {
 
     function handleCartItems({ id, gameName, image, productURL }: cartItemProps) {
         if (cartItemsId.includes(id)) {
-            return;
+            handleCartDelete({ id: id });
         }
         else {
             localStorage.setItem('cart', JSON.stringify([...cartItems, { id: id, gameName: gameName, price: id, image: image, productURL: productURL }]));

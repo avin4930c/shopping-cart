@@ -33,14 +33,16 @@ function ProductDetailPage() {
     const [screenshots, setScreenshots] = useState<apiDataProps>();
     const { productId } = useParams();
     const [open, setOpen] = useState(false);
-    const {handleCartItems} = useContext(CartContext);
+    const {cartItems, handleCartItems} = useContext(CartContext);
+    const cartItemsId = cartItems?.map((items) => items.id);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const apiData = await getApiDetails({ id: Number(productId) });
-                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots" });
                 setData(apiData);
+                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots" });
+                
                 setScreenshots(screenshotsData);
                 console.log(data, "Hello");
             }
@@ -96,9 +98,10 @@ function ProductDetailPage() {
                                         </Collapse>
                                     </div>
                                 </div>
-                                <div className="product-price-cart text-white d-flex justify-content-between p-4">
-                                    <div className="product-price">INR 5000</div>
-                                    <button className="product-cart btn btn-primary" onClick={() => handleCartItems({id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}`})}>Add to cart <i className="bi bi-cart"></i></button>
+                                <div className="product-price-cart text-white d-flex justify-content-between align-items-center p-4">
+                                    <div className="product-price h4 text-dark">INR {data?.id}</div>
+                                    <button className="product-cart btn btn-primary" onClick={() => handleCartItems({id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}`})}>
+                                    {(cartItemsId.includes(data?.id)) ? (<i className="bi bi-cart-check bg-primary text-black h3 px-1 m-2 rounded"></i>) : (<>{"Add to Cart"} <i className="bi bi-cart"></i></>)}</button>
                                 </div>
                             </div>
                         </section>
