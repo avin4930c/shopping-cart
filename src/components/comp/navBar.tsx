@@ -1,8 +1,11 @@
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import './navBar.css';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../App';
 
 function NavBar({ pageName }: { pageName: string }) {
+  const {cartItems} = useContext(CartContext);
   return (
     <>
       <Navbar expand="lg" className="-secondary px-5 fixed-top navBar" id="navbarMain">
@@ -37,7 +40,8 @@ function NavBar({ pageName }: { pageName: string }) {
                 </>
               )}
               <Link to="/productPage"><Nav.Link href="#store" className="text-light navlink-text mx-2">Store</Nav.Link></Link>
-              <Link to="/cart"><Nav.Link href="cart" className="text-light navlink-text mx-2">Cart <i className="bi bi-cart"></i></Nav.Link></Link>
+              <Link to="/cart"><Nav.Link href="cart" className="text-light navlink-text mx-2">Cart <i className="bi bi-cart"></i>
+              <span className="badge ms-2" style={{backgroundColor: "var(--secondary-color)"}}>{cartItems.length}</span></Nav.Link></Link>
             </Nav>
           </Navbar.Collapse>
         </div>
