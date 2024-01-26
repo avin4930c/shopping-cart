@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 import Accordion from 'react-bootstrap/Accordion';
 import { Footer } from './comp/footer';
@@ -7,6 +7,7 @@ import { NavBar } from './comp/navBar';
 import { getApiDetails } from './rawg-Api';
 import { CarouselMain } from './comp/carouselMain';
 import { Link, Outlet } from 'react-router-dom';
+import { CartContext } from '../App';
 
 type apiDataProps = {
   name: string,
@@ -17,11 +18,12 @@ type apiDataProps = {
 
 function LandingPage() {
   const [data, setData] = useState<apiDataProps[]>([]);
+  const {isLoading, setIsLoading} = useContext(CartContext);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const apiData = await getApiDetails({ size: 12 });
+        const apiData = await getApiDetails({ size: 12, setIsLoading: setIsLoading});
         setData(apiData);
       }
       catch (error) {
@@ -58,9 +60,11 @@ function LandingPage() {
         <section className="top-games p-3 -primary">
           <header className="top-games-header h2 my-3 mb-3 text-center text-sm-start" style={{ color: "whitesmoke" }}>Top Games</header>
           <hr className="hr" style={{ color: "var(--secondary-color" }}></hr>
-          <div className="top-games-container row g-4 -primary px-5">
-
-            {data.map((item, index) => (
+          <div className="top-games-container row g-4 -primary px-5 d-flex justify-content-center">
+            {isLoading ? (<div className='loader'></div>) :
+            (
+              <>
+                {data.map((item, index) => (
               <div key={index} className="col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6"><Link to={`/productPage/${item.id}`}>
                 <Card className="card-main">
                   <Card.Img style={{ width: 'auto', height: 'min(350px, 40vh)', maxHeight: '350=px' }} variant="top" src={item.background_image} />
@@ -74,6 +78,8 @@ function LandingPage() {
               </div>
 
             )
+            )}
+              </>
             )}
           </div>
         </section>

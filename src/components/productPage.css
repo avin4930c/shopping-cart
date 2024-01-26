@@ -74,13 +74,16 @@ body::before {
 }
 
 .cart-right:hover {
-    background-color: gold;
     border: 0px solid gold;
     border-radius: 5px;
+    background-color: gold;
+}
+
+.cart-right-hover:hover {
 }
 
 /* .price-cart .cart-right {
-    color: black;
+    color: white;
 } */
 
 @media (max-width: 767px) {

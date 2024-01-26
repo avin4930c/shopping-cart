@@ -14,7 +14,7 @@ function CartPage() {
                 <div className="cart-items">
                     {cartItems.map((item, index) => (
                         <div key={index} className="cart-item">
-                            <div className="cart-item-image"><img src={item.image} alt="" /></div>
+                            <div className="cart-item-image"><Link to={item.productURL!} ><img src={item.image} alt="" /></Link></div>
                             <div className="cart-item-details">
                                 <div className="cart-item-title"><Link to={item.productURL!} >{item.gameName}</Link></div>
                                 <div className="cart-item-price">INR {item.price}</div>

@@ -16,9 +16,10 @@ type getApiDetailsProps = {
     screenshot?: boolean;
     searchTitle?: string;
     searchDetails?: searchDetailsProps;
+    setIsLoading?: Function;
 }
 
-async function getApiDetails({size = 10, id, searchTitle, searchDetails, ordering} : getApiDetailsProps) {
+async function getApiDetails({size = 10, id, searchTitle, searchDetails, ordering, setIsLoading} : getApiDetailsProps) {
     let mainQuery = id ? (!searchTitle ? `https://api.rawg.io/api/games/${id}?key=${key}` : `https://api.rawg.io/api/games/${id}`) : `https://api.rawg.io/api/games?key=${key}&page_size=${size}`;
     if (searchTitle) {
         switch (searchTitle) {
@@ -41,9 +42,22 @@ async function getApiDetails({size = 10, id, searchTitle, searchDetails, orderin
     }
     ordering ? mainQuery += `&ordering=${ordering}` : mainQuery += "";
     console.log(mainQuery, "Main query");
-    const response = await fetch(mainQuery);
-    const data = await response.json();
-    return (id ? data : data.results);
+    if (setIsLoading) {
+        setIsLoading(true);
+    }
+    try {
+        const response = await fetch(mainQuery);
+        const data = await response.json();
+        return (id ? data : data.results);
+    }
+    catch(error) {
+        console.error("Error getting data", error);
+    }
+    finally {
+        if (setIsLoading) {
+            setIsLoading(false);
+        }
+    }
 }
 
 export { getApiDetails }

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import Carousel from 'react-bootstrap/Carousel';
 import './productDetailPage.css';
+import './comp/loadingScreen.css';
 import { NavBar } from './comp/navBar';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -33,16 +34,15 @@ function ProductDetailPage() {
     const [screenshots, setScreenshots] = useState<apiDataProps>();
     const { productId } = useParams();
     const [open, setOpen] = useState(false);
-    const {cartItems, handleCartItems} = useContext(CartContext);
+    const {cartItems, handleCartItems, isLoading, setIsLoading} = useContext(CartContext);
     const cartItemsId = cartItems?.map((items) => items.id);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const apiData = await getApiDetails({ id: Number(productId) });
+                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots"});
                 setData(apiData);
-                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots" });
-                
                 setScreenshots(screenshotsData);
                 console.log(data, "Hello");
             }
@@ -64,7 +64,10 @@ function ProductDetailPage() {
                             <div className="navBar-right text-end" style={{ fontSize: "48px" }}>{data?.name}</div>
                         </div>
                         <section className="product-details-main">
-                            <div className="product-details-carousel">
+                            {isLoading ? (<div className="loader"></div>) :
+                            (
+                                <>
+                                <div className="product-details-carousel">
                                 <Carousel>
                                     {(screenshots?.results.map((result, index) => (
                                         <Carousel.Item key={index} interval={2000}>
@@ -73,6 +76,8 @@ function ProductDetailPage() {
                                     )))}
                                 </Carousel>
                             </div>
+                                </>
+                            )}
                             <div className="product-details-right">
                                 <div className="product-info-container">
                                     <div className="product-info-main px-4">

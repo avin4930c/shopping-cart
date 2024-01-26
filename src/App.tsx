@@ -16,16 +16,21 @@ type cartItemProps = {
 
 export const CartContext = createContext<{
     cartItems: cartItemProps[];
+    isLoading: boolean;
     handleCartItems: (cartItem: cartItemProps) => void;
     handleCartDelete: (cartItem: cartItemProps) => void;
+    setIsLoading: (isLoading: boolean) => void;
 }>({
     cartItems: [],
+    isLoading: false,
     handleCartItems: () => { },
     handleCartDelete: () => { },
+    setIsLoading: () => {},
 })
 
 function App() {
     const [cartItems, setCartItems] = useState<cartItemProps[]>([]);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     let cartItemsId : (number | undefined)[] = [];
 
     useEffect(() => {
@@ -81,6 +86,10 @@ function App() {
         },
     ]);
 
+    useEffect(() => {
+        console.log(isLoading, "isLoading");
+    }, [isLoading]);
+
     // useEffect(() => {
     //     console.log(cartItems, "Cart Items");
     //     localStorage.setItem('cartItems', JSON.stringify(cartItems));
@@ -88,7 +97,7 @@ function App() {
 
     return (
         <>
-            <CartContext.Provider value={{ cartItems, handleCartItems, handleCartDelete }} >
+            <CartContext.Provider value={{ cartItems, isLoading, handleCartItems, handleCartDelete, setIsLoading }} >
                 <RouterProvider router={router} />
             </CartContext.Provider>
         </>
