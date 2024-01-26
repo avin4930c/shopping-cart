@@ -5,6 +5,7 @@ import { LandingPage } from './components/landingPage.tsx';
 import { ProductDetailPage } from './components/productDetailPage.tsx';
 import { ErrorPage } from './components/errorPage.tsx';
 import { CartPage } from './components/cartPage.tsx';
+import { priceComp } from './components/comp/priceComp.ts';
 
 type cartItemProps = {
     id?: number,
@@ -45,13 +46,14 @@ function App() {
     }, []);
 
     function handleCartItems({ id, gameName, image, productURL }: cartItemProps) {
+        const finalPrice = priceComp(id!);
         if (cartItemsId.includes(id)) {
             handleCartDelete({ id: id });
         }
         else {
-            localStorage.setItem('cart', JSON.stringify([...cartItems, { id: id, gameName: gameName, price: id, image: image, productURL: productURL }]));
+            localStorage.setItem('cart', JSON.stringify([...cartItems, { id: id, gameName: gameName, price: finalPrice, image: image, productURL: productURL }]));
             setCartItems((prev) => (
-                [...prev, { id: id, gameName: gameName, price: id, image: image, productURL: productURL }]
+                [...prev, { id: id, gameName: gameName, price: finalPrice, image: image, productURL: productURL }]
             ));
         }
     }

@@ -29,6 +29,7 @@ function ProductPage() {
     const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({ searchTitle: "", mainTitle: "" });
     const [ordering, setOrdering] = useState<string>("");
     const [data, setData] = useState<productPageProps[]>([]);
+    const [isSideBarActive, setIsSideBarActive] = useState<boolean>(false);
     const { cartItems, handleCartItems, isLoading, setIsLoading } = useContext(CartContext);
 
     const cartItemsID = cartItems?.map((items) => items.id);
@@ -92,6 +93,24 @@ function ProductPage() {
         });
     }, [category]);
 
+    useEffect(() => {
+        const sideBarToggleBtn = document.querySelector(".side-bar-toggle");
+        const sideBar = document.querySelector(".side-bar");
+        const toggleSideBar = () => {
+            setIsSideBarActive(!isSideBarActive);
+        }
+        const closeSideBar = () => {
+            setIsSideBarActive(false);
+        }
+        sideBarToggleBtn?.addEventListener("click", toggleSideBar);
+        sideBar?.addEventListener("click", closeSideBar)
+
+        return () => {
+            sideBarToggleBtn?.removeEventListener("click", toggleSideBar);
+            sideBar?.removeEventListener("click", closeSideBar);
+        };
+    }, [isSideBarActive]);
+
     // useEffect(() => {
     //     const currentActiveButton = document.getElementById(`${category}`);
     //     currentActiveButton?.classList.add("title-active");
@@ -101,8 +120,9 @@ function ProductPage() {
     return (
         <>
             <NavBar pageName="productPage" />
+            <div className="side-bar-toggle"><i className="fa-solid fa-bars"></i></div>
             <section className="product-page-main">
-                <section className="side-bar px-5">
+                <section className={isSideBarActive ? "side-bar px-5 side-bar-active" : "side-bar px-5"}>
                     <div className="container">
                         <div className="category-main">
                             <div className="category-title text-start">Categorize By</div>
@@ -176,7 +196,7 @@ function ProductPage() {
                         </div>
                     </div>
                     <section className="product-container mx-5">
-                        <div className={isLoading? "containter-xxxl d-flex justify-content-center": "container-xxxl"}>
+                        <div className={isLoading ? "containter-xxxl d-flex justify-content-center" : "container-xxxl"}>
                             {isLoading ? (<div className="loader"></div>) :
                                 (
                                     <>
@@ -201,7 +221,7 @@ function ProductPage() {
                                                             <Card.Text className="mt-3">
                                                                 <div className="price-cart d-flex justify-content-between">
                                                                     <div className="price-left">INR {priceComp(item.id)}</div>
-                                                                    <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 text-black px-1 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
+                                                                    <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 text-black px-2 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
                                                                 </div>
                                                             </Card.Text>
                                                         </Card.Body>

@@ -13,6 +13,7 @@ body::before {
 }
 
 .side-bar {
+    display: block;
     padding: 50px 0px;
     background-color: var(--primary-color);
     border-right: 5px solid rgb(85, 76, 76);
@@ -91,7 +92,33 @@ body::before {
         grid-template-columns: 1fr;
     }
     .side-bar {
+        width: 90%;
+        min-height: 99vh;
         display: none;
+        position: fixed;
+        top: 10px;
+        left: 0px;
+        z-index: 3;
+    }
+    .side-bar-toggle {
+        display: block;
+    }
+    .side-bar-toggle {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: gold;
+        border-radius: 50%;
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        cursor: pointer;
+        z-index: 999;
+      }
+    .side-bar-active {
+        display: block;
     }
     .product-display {
         padding: 50px 0px;

@@ -12,6 +12,7 @@ import { getApiDetails } from './rawg-Api';
 import parse from 'html-react-parser';
 import { useContext } from 'react';
 import { CartContext } from '../App';
+import { priceComp } from './comp/priceComp';
 
 type apiDataProps = {
     id: number,
@@ -104,7 +105,7 @@ function ProductDetailPage() {
                                     </div>
                                 </div>
                                 <div className="product-price-cart text-white d-flex justify-content-between align-items-center p-4">
-                                    <div className="product-price h4 text-dark">INR {data?.id}</div>
+                                    <div className="product-price h4 text-dark">INR {priceComp(data?.id!)}</div>
                                     <button className="product-cart btn btn-primary" onClick={() => handleCartItems({id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}`})}>
                                     {(cartItemsId.includes(data?.id)) ? (<i className="bi bi-cart-check bg-primary text-black h3 px-1 m-2 rounded"></i>) : (<>{"Add to Cart"} <i className="bi bi-cart"></i></>)}</button>
                                 </div>
