@@ -7,6 +7,7 @@ import { Link, Outlet } from 'react-router-dom';
 import { getApiDetails } from './rawg-Api';
 import { apiRequestCategory } from './comp/apiRequestCategory';
 import { CartContext } from '../App';
+import { priceComp } from './comp/priceComp';
 
 type productPageProps = {
     name: string,
@@ -180,11 +181,11 @@ function ProductPage() {
                                 (
                                     <>
                                         <div className="row d-flex g-2 gy-4">
-                                            {data.map((item, index) => (
+                                            {data?.map((item, index) => (
                                                 <div key={index} className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
                                                     <Card className="card-product-main">
                                                         <Link to={`/productPage/${item.id}`}>
-                                                            <Card.Img variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}
+                                                            <Card.Img loading='lazy' variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}
                                                         </Link>
                                                         <Card.Body>
                                                             <Link to={`/productPage/${item.id}`}>
@@ -199,7 +200,7 @@ function ProductPage() {
                                                             </Link>
                                                             <Card.Text className="mt-3">
                                                                 <div className="price-cart d-flex justify-content-between">
-                                                                    <div className="price-left">INR 5000</div>
+                                                                    <div className="price-left">INR {priceComp(item.id)}</div>
                                                                     <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 text-black px-1 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
                                                                 </div>
                                                             </Card.Text>

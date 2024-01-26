@@ -64,7 +64,7 @@ function LandingPage() {
             {isLoading ? (<div className='loader'></div>) :
             (
               <>
-                {data.map((item, index) => (
+                {data?.map((item, index) => (
               <div key={index} className="col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6"><Link to={`/productPage/${item.id}`}>
                 <Card className="card-main">
                   <Card.Img style={{ width: 'auto', height: 'min(350px, 40vh)', maxHeight: '350=px' }} variant="top" src={item.background_image} />

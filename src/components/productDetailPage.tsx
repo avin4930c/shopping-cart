@@ -60,8 +60,8 @@ function ProductDetailPage() {
                     <NavBar pageName="productDetailPage" />
                     <section className="product-details px-5">
                         <div className="navBar-product text-white d-flex justify-content-between align-items-center px-3">
-                            <div className="navBar-left" style={{ fontSize: "24px" }}><Link to="/productPage"><i className="bi bi-arrow-left px-1"></i> Store</Link></div>
-                            <div className="navBar-right text-end" style={{ fontSize: "48px" }}>{data?.name}</div>
+                            <div className="navBar-left" style={{ fontSize: "max(20px, 1.4vw)" }}><Link to="/productPage"><i className="bi bi-arrow-left px-1"></i> Store</Link></div>
+                            <div className="navBar-right text-end" style={{ fontSize: "max(24px, 2vw)" }}>{data?.name}</div>
                         </div>
                         <section className="product-details-main">
                             {isLoading ? (<div className="loader"></div>) :
