@@ -256,7 +256,6 @@ function ProductPage() {
                     </section>
                 </section>
             </section>
-            <Outlet />
 
         </>
     )
