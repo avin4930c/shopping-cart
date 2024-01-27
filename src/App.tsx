@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, createContext } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ProductPage } from './components/productPage.tsx';
 import { LandingPage } from './components/landingPage.tsx';

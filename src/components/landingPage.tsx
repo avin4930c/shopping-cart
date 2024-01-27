@@ -6,7 +6,7 @@ import './landingPage.css';
 import { NavBar } from './comp/navBar';
 import { getApiDetails } from './rawg-Api';
 import { CarouselMain } from './comp/carouselMain';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../App';
 
 type apiDataProps = {

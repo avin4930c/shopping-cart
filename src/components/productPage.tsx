@@ -3,7 +3,7 @@ import Card from 'react-bootstrap/Card';
 import './productPage.css';
 import './comp/loadingScreen.css';
 import { NavBar } from './comp/navBar';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { getApiDetails } from './rawg-Api';
 import { apiRequestCategory } from './comp/apiRequestCategory';
 import { CartContext } from '../App';

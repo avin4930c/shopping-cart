@@ -35,7 +35,7 @@ function ProductDetailPage() {
     const [screenshots, setScreenshots] = useState<apiDataProps>();
     const { productId } = useParams();
     const [open, setOpen] = useState(false);
-    const {cartItems, handleCartItems, isLoading, setIsLoading} = useContext(CartContext);
+    const {cartItems, handleCartItems, isLoading} = useContext(CartContext);
     const cartItemsId = cartItems?.map((items) => items.id);
 
     useEffect(() => {
