@@ -26,7 +26,7 @@ type searchDetailsProps = {
 
 function ProductPage() {
     const [category, setCategory] = useState<string>("by-mostPopular");
-    const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({ searchTitle: "", mainTitle: "" });
+    const [searchDetails, setSearchDetails] = useState<searchDetailsProps>({ searchTitle: "mostPopular", mainTitle: "Most Popular" });
     const [ordering, setOrdering] = useState<string>("");
     const [data, setData] = useState<productPageProps[]>([]);
     const [isSideBarActive, setIsSideBarActive] = useState<boolean>(false);
