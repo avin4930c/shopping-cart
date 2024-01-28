@@ -80,6 +80,7 @@ body::before {
 @media (max-width: 768px) {
     .product-details-main {
         flex-direction: column;
+        max-width: 100%;
     }
 
     .product-details-carousel {

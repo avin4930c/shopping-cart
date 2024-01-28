@@ -15,11 +15,13 @@ function CartPage() {
                 <div className="cart-items">
                     {cartItems.map((item, index) => (
                         <div key={index} className="cart-item">
-                            <div className="cart-item-image"><Link to={item.productURL!} ><img src={item.image} alt="" /></Link></div>
+                            <Link to={item.productURL!} ><img src={item.image} className="cart-item-image" alt="" /></Link>
                             <div className="cart-item-details">
+                                <div className="cart-item-name-container d-flex justify-content-around align-items-center pt-2">
                                 <div className="cart-item-title"><Link to={item.productURL!} >{item.gameName}</Link></div>
+                                <button className="cart-item-delete btn btn-warning my-1 py-1" onClick={() => handleCartDelete({ id: item.id })}><i className="fa-solid fa-trash"></i></button>
+                                </div>
                                 <div className="cart-item-price">INR {item.price}</div>
-                                <button className="cart-item-delete btn btn-primary my-1 py-1" onClick={() => handleCartDelete({ id: item.id })}>Delete</button>
                             </div>
                         </div>
                     ))}
@@ -59,7 +61,7 @@ function CartPage() {
                                 </div>
                                 <button className="cart-checkout p-1 btn mx-1">Checkout</button>
                             </>
-                            ) : (<div className="cart-empty">Cart is empty</div>))
+                            ) : (<div className="cart-empty m-auto">Cart is empty</div>))
                     }
                 </div>
             </div>

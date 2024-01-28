@@ -19,6 +19,10 @@ body::before {
     border-right: 5px solid rgb(85, 76, 76);
 }
 
+.side-bar-toggle {
+    display: none;
+}
+
 .category-title {
     color: gold;
 }

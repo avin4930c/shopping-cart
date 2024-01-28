@@ -47,6 +47,7 @@ function App() {
 
     function handleCartItems({ id, gameName, image, productURL }: cartItemProps) {
         const finalPrice = priceComp(id!);
+        cartItemsId = cartItems?.map((items) => items.id); //fixed bug of repeating items in cart
         if (cartItemsId.includes(id)) {
             handleCartDelete({ id: id });
         }
