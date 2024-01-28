@@ -32,7 +32,6 @@ function ProductPage() {
     const [data, setData] = useState<productPageProps[]>([]);
     const [isSideBarActive, setIsSideBarActive] = useState<boolean>(false);
     const { cartItems, handleCartItems, isLoading, setIsLoading } = useContext(CartContext);
-
     const cartItemsID = cartItems?.map((items) => items.id);
 
     useEffect(() => {
@@ -41,6 +40,7 @@ function ProductPage() {
 
         if (!storageCategory) {
             sessionStorage.setItem("category", category);
+            setSearchDetails( { searchTitle: "mostPopular", mainTitle: "Most Popular" });
         }
         else {
             const requestData = apiRequestCategory(storageCategory);

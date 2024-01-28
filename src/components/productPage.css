@@ -46,7 +46,7 @@ body::before {
 
 .card-product-main {
     width: max(auto, 350px);
-    min-height: 500px; /* change this adjust card size */
+    min-height: auto; /* change this adjust card size */
     cursor: pointer;
     color: var(--secondary-color);
     background-color: var(--primary-color);
