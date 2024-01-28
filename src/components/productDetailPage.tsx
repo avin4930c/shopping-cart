@@ -35,14 +35,14 @@ function ProductDetailPage() {
     const [screenshots, setScreenshots] = useState<apiDataProps>();
     const { productId } = useParams();
     const [open, setOpen] = useState(false);
-    const {cartItems, handleCartItems, isLoading} = useContext(CartContext);
+    const { cartItems, handleCartItems, isLoading } = useContext(CartContext);
     const cartItemsId = cartItems?.map((items) => items.id);
 
     useEffect(() => {
         async function fetchData() {
             try {
                 const apiData = await getApiDetails({ id: Number(productId) });
-                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots"});
+                const screenshotsData = await getApiDetails({ id: Number(productId), searchTitle: "screenshots" });
                 setData(apiData);
                 setScreenshots(screenshotsData);
                 console.log(data, "Hello");
@@ -66,19 +66,19 @@ function ProductDetailPage() {
                         </div>
                         <section className="product-details-main">
                             {isLoading ? (<div className="loader"></div>) :
-                            (
-                                <>
-                                <div className="product-details-carousel">
-                                <Carousel>
-                                    {(screenshots?.results.map((result, index) => (
-                                        <Carousel.Item key={index} interval={2000}>
-                                            <img src={result.image} alt="" />
-                                        </Carousel.Item>
-                                    )))}
-                                </Carousel>
-                            </div>
-                                </>
-                            )}
+                                (
+                                    <>
+                                        <div className="product-details-carousel">
+                                            <Carousel>
+                                                {(screenshots?.results.map((result, index) => (
+                                                    <Carousel.Item key={index} interval={2000}>
+                                                        <img src={result.image} alt="" />
+                                                    </Carousel.Item>
+                                                )))}
+                                            </Carousel>
+                                        </div>
+                                    </>
+                                )}
                             <div className="product-details-right">
                                 <div className="product-info-container">
                                     <div className="product-info-main px-4">
@@ -106,8 +106,8 @@ function ProductDetailPage() {
                                 </div>
                                 <div className="product-price-cart text-white d-flex justify-content-between align-items-center p-4">
                                     <div className="product-price h4 text-dark">INR {priceComp(data?.id!)}</div>
-                                    <button className="product-cart btn btn-primary" onClick={() => handleCartItems({id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}`})}>
-                                    {(cartItemsId.includes(data?.id)) ? (<i className="bi bi-cart-check bg-primary text-black h3 px-1 m-2 rounded"></i>) : (<>{"Add to Cart"} <i className="bi bi-cart"></i></>)}</button>
+                                    <button className="product-cart btn btn-primary" onClick={() => handleCartItems({ id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}` })}>
+                                        {(cartItemsId.includes(data?.id)) ? (<i className="bi bi-cart-check bg-primary text-black h3 px-1 m-2 rounded"></i>) : (<>{"Add to Cart"} <i className="bi bi-cart"></i></>)}</button>
                                 </div>
                             </div>
                         </section>

@@ -1,6 +1,6 @@
 function priceComp(price: number) {
-    
-    if (typeof(price) !== 'number') {
+
+    if (typeof (price) !== 'number') {
         return 0;
     }
 

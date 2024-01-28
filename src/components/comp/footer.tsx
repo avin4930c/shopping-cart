@@ -16,10 +16,10 @@ function Footer() {
           </div>
         </section>
 
-        <section className="py-5" style={{fontWeight: 500}}>
+        <section className="py-5" style={{ fontWeight: 500 }}>
           <div className="container text-center text-dark text-md-start mt-5">
             <div className="row mt-3">
-              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" style={{fontSize: "18px", fontWeight: 600}}>
+              <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" style={{ fontSize: "18px", fontWeight: 600 }}>
                 <h6 className="text-uppercase fw-bold">Game Inn</h6>
                 <hr className="mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px", backgroundColor: "var(--primary-color)", height: "5px" }} />
                 <p>Game Inn is your one-stop destination for online game shopping. Dive into a world of gaming diversity with our carefully curated selection, featuring the latest titles and timeless classics. Enjoy secure transactions, competitive prices, and swift deliveries. Level up your gaming experience with Game Inn - where passion meets play.</p>

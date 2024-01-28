@@ -32,7 +32,8 @@ body::before {
     cursor: pointer;
 }
 
-.title-active, .category-sub-titles:hover {
+.title-active,
+.category-sub-titles:hover {
     color: var(--secondary-color);
     background-color: gold;
     border-radius: 5px;
@@ -45,7 +46,7 @@ body::before {
 
 .card-product-main {
     width: max(auto, 350px);
-    height: auto;
+    min-height: 500px; /* change this adjust card size */
     cursor: pointer;
     color: var(--secondary-color);
     background-color: var(--primary-color);
@@ -84,17 +85,11 @@ body::before {
     background-color: gold;
 }
 
-.cart-right-hover:hover {
-}
-
-/* .price-cart .cart-right {
-    color: white;
-} */
-
 @media (max-width: 767px) {
     .product-page-main {
         grid-template-columns: 1fr;
     }
+
     .side-bar {
         width: 90%;
         min-height: 99vh;
@@ -104,9 +99,11 @@ body::before {
         left: 0px;
         z-index: 3;
     }
+
     .side-bar-toggle {
         display: block;
     }
+
     .side-bar-toggle {
         width: 40px;
         height: 40px;
@@ -120,14 +117,17 @@ body::before {
         left: 20px;
         cursor: pointer;
         z-index: 999;
-      }
+    }
+
     .side-bar-active {
         display: block;
     }
+
     .product-display {
         padding: 50px 0px;
         height: auto;
     }
+
     .card-product-main {
         width: max(auto, 350px);
         height: auto;

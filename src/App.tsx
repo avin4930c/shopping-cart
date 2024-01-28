@@ -1,11 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { ProductPage } from './components/productPage.tsx';
-import { LandingPage } from './components/landingPage.tsx';
-import { ProductDetailPage } from './components/productDetailPage.tsx';
-import { ErrorPage } from './components/errorPage.tsx';
-import { CartPage } from './components/cartPage.tsx';
 import { priceComp } from './components/comp/priceComp.ts';
+import { Route } from './components/routes.tsx';
 
 type cartItemProps = {
     id?: number,
@@ -26,13 +21,13 @@ export const CartContext = createContext<{
     isLoading: false,
     handleCartItems: () => { },
     handleCartDelete: () => { },
-    setIsLoading: () => {},
+    setIsLoading: () => { },
 })
 
 function App() {
     const [cartItems, setCartItems] = useState<cartItemProps[]>([]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    let cartItemsId : (number | undefined)[] = [];
+    let cartItemsId: (number | undefined)[] = [];
 
     useEffect(() => {
         cartItemsId = cartItems?.map((items) => items.id);
@@ -65,43 +60,14 @@ function App() {
         setCartItems(newCartItems);
     }
 
-    const router = createBrowserRouter([
-        {
-            path: "/",
-            element: <LandingPage />,
-            errorElement: <ErrorPage />
-        },
-        {
-            path: 'productPage',
-            element: <ProductPage />,
-        },
-        {
-            path: 'productPage/:productId',
-            element: <ProductDetailPage />,
-        },
-        {
-            path: 'cart',
-            element: <CartPage />,
-        },
-        {
-            path: '*',
-            element: <ErrorPage />,
-        },
-    ]);
-
     useEffect(() => {
         console.log(isLoading, "isLoading");
     }, [isLoading]);
 
-    // useEffect(() => {
-    //     console.log(cartItems, "Cart Items");
-    //     localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    // }, [cartItems])
-
     return (
         <>
             <CartContext.Provider value={{ cartItems, isLoading, handleCartItems, handleCartDelete, setIsLoading }} >
-                <RouterProvider router={router} />
+                <Route />
             </CartContext.Provider>
         </>
     )

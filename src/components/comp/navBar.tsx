@@ -5,12 +5,12 @@ import { useContext } from 'react';
 import { CartContext } from '../../App';
 
 function NavBar({ pageName }: { pageName: string }) {
-  const {cartItems} = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
   return (
     <>
       <Navbar expand="lg" className="-secondary px-5 fixed-top navBar" id="navbarMain">
         <div className="container">
-          <Navbar.Brand className="p-2 text-light"><Link to="/" ><h2>Game <span style={{ color: "var(--secondary-color)" }}>Inn</span></h2></Link></Navbar.Brand>
+          <Navbar.Brand className="p-2 text-light"><Link to="/" onClick={() => window.scroll(0, 0)}><h2>Game <span style={{ color: "var(--secondary-color)" }}>Inn</span></h2></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex mx-auto nav-form" style={{ minWidth: "20vw" }}>
@@ -33,7 +33,7 @@ function NavBar({ pageName }: { pageName: string }) {
                   <Nav.Link href="#questions" className="text-light navlink-text mx-2">Questions</Nav.Link>
                 </>
               )
-              } 
+              }
               {(pageName === "landingPage") || (
                 <>
                   <Link to="/"><Nav.Link href="/" className='text-light navlink-text mx-2'>Home</Nav.Link></Link>
@@ -41,7 +41,7 @@ function NavBar({ pageName }: { pageName: string }) {
               )}
               <Link to="/productPage"><Nav.Link href="#store" className="text-light navlink-text mx-2">Store</Nav.Link></Link>
               <Link to="/cart"><Nav.Link href="cart" className="text-light navlink-text mx-2">Cart <i className="bi bi-cart"></i>
-              <span className="badge ms-2" style={{backgroundColor: "var(--secondary-color)"}}>{cartItems.length}</span></Nav.Link></Link>
+                <span className="badge ms-2" style={{ backgroundColor: "var(--secondary-color)" }}>{cartItems.length}</span></Nav.Link></Link>
             </Nav>
           </Navbar.Collapse>
         </div>
