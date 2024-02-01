@@ -40,7 +40,7 @@ function ProductPage() {
 
         if (!storageCategory) {
             sessionStorage.setItem("category", category);
-            setSearchDetails( { searchTitle: "mostPopular", mainTitle: "Most Popular" });
+            setSearchDetails({ searchTitle: "mostPopular", mainTitle: "Most Popular" });
         }
         else {
             const requestData = apiRequestCategory(storageCategory);

@@ -1,4 +1,4 @@
-const key = "a29a8d297fb740429bc885bf74d311e8";
+const key = "12b6502c52a3405cbaa7680b30826f54";
 
 type searchDetailsProps = {
     searchTitle: string,
