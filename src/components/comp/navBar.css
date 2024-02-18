@@ -58,3 +58,9 @@
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
+
+@media (max-width: 768px) {
+    .search-results {
+        width: 70vw;
+    }
+}

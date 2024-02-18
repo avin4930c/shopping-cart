@@ -62,7 +62,7 @@ function NavBar({ pageName }: { pageName: string }) {
       <Navbar expand="lg" className="-secondary px-5 fixed-top navBar" id="navbarMain">
         <div className="container">
           <Navbar.Brand className="p-2 text-light"><Link to="/" onClick={() => window.scroll(0, 0)}><h2>Game <span style={{ color: "var(--secondary-color)" }}>Inn</span></h2></Link></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll" style={{ backgroundColor: "var(--secondary-color)" }} />
           <Navbar.Collapse id="navbarScroll">
             <Form className="d-flex mx-auto nav-form" ref={searchRef} onClick={handleSearchFormClick} style={{ minWidth: "20vw" }}>
               <FormControl
