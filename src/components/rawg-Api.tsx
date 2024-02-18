@@ -1,7 +1,7 @@
 const key = "12b6502c52a3405cbaa7680b30826f54";
 
 type searchDetailsProps = {
-    searchTitle: string,
+    searchTitle?: string,
     mainTitle: string,
     year?: number | undefined,
     platform?: string | undefined,
@@ -23,6 +23,9 @@ async function getApiDetails({ size = 10, id, searchTitle, searchDetails, orderi
     let mainQuery = id ? (!searchTitle ? `https://api.rawg.io/api/games/${id}?key=${key}` : `https://api.rawg.io/api/games/${id}`) : `https://api.rawg.io/api/games?key=${key}&page_size=${size}`;
     if (searchTitle) {
         switch (searchTitle) {
+            case "search":
+                mainQuery = `https://api.rawg.io/api/games?key=${key}&search=${searchDetails?.mainTitle}`;
+                break;
             case "screenshots":
                 mainQuery += `/screenshots?key=${key}`;
                 break;

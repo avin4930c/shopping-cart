@@ -22,3 +22,39 @@
     padding-top: 0px;
     padding-bottom: 0px;
 }
+
+.nav-form {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 20vw;
+    max-height: 30vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: var(--secondary-color);
+    border: 5px solid var(--primary-color);
+    border-top: none;
+    padding: 10px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.search-results::-webkit-scrollbar {
+    display: none;
+}
+
+
+.list-group-item {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
