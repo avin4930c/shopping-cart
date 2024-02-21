@@ -9,6 +9,7 @@ import { apiRequestCategory } from './comp/apiRequestCategory';
 import { CartContext } from '../App';
 import { priceComp } from './comp/priceComp';
 import { SideBar } from './comp/sideBar';
+import { motion } from 'framer-motion';
 
 type productPageProps = {
     name: string,
@@ -144,29 +145,31 @@ function ProductPage() {
                                         <div className="row d-flex g-2 gy-4">
                                             {data?.map((item, index) => (
                                                 <div key={index} className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
-                                                    <Card className="card-product-main">
-                                                        <Link to={`/productPage/${item.id}`}>
-                                                            <Card.Img loading='lazy' variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}
-                                                        </Link>
-                                                        <Card.Body>
+                                                    <motion.div whileHover={{ scale: 1.05 }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ type: "spring", }} >
+                                                        <Card className="card-product-main">
                                                             <Link to={`/productPage/${item.id}`}>
-                                                                <Card.Title className="product-title">{item.name}</Card.Title>
-                                                                <Card.Text className="m-0">{item.rating} / 5</Card.Text>
-                                                                <Card.Text className="m-0 mt-1">
-                                                                    <span><i className="bi bi-windows mx-1"></i></span>
-                                                                    <span><i className="bi bi-playstation mx-1"></i></span>
-                                                                    <span><i className="bi bi-xbox mx-1"></i></span>
-                                                                    <span><i className="bi bi-phone mx-1"></i></span>
-                                                                </Card.Text>
+                                                                <Card.Img loading='lazy' variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}
                                                             </Link>
-                                                            <Card.Text className="mt-3">
-                                                                <div className="price-cart d-flex justify-content-between">
-                                                                    <div className="price-left">INR {priceComp(item.id)}</div>
-                                                                    <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 text-black px-2 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
-                                                                </div>
-                                                            </Card.Text>
-                                                        </Card.Body>
-                                                    </Card>
+                                                            <Card.Body>
+                                                                <Link to={`/productPage/${item.id}`}>
+                                                                    <Card.Title className="product-title">{item.name}</Card.Title>
+                                                                    <Card.Text className="m-0">{item.rating} / 5</Card.Text>
+                                                                    <Card.Text className="m-0 mt-1">
+                                                                        <span><i className="bi bi-windows mx-1"></i></span>
+                                                                        <span><i className="bi bi-playstation mx-1"></i></span>
+                                                                        <span><i className="bi bi-xbox mx-1"></i></span>
+                                                                        <span><i className="bi bi-phone mx-1"></i></span>
+                                                                    </Card.Text>
+                                                                </Link>
+                                                                <Card.Text className="mt-3">
+                                                                    <div className="price-cart d-flex justify-content-between">
+                                                                        <div className="price-left">INR {priceComp(item.id)}</div>
+                                                                        <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 text-black px-2 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
+                                                                    </div>
+                                                                </Card.Text>
+                                                            </Card.Body>
+                                                        </Card>
+                                                    </motion.div>
                                                 </div>
                                             ))}
                                         </div>
@@ -176,7 +179,7 @@ function ProductPage() {
                         </div>
                     </section>
                 </section>
-            </section>
+            </section >
 
         </>
     )

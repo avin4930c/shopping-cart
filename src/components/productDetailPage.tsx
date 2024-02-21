@@ -13,6 +13,7 @@ import parse from 'html-react-parser';
 import { useContext } from 'react';
 import { CartContext } from '../App';
 import { priceComp } from './comp/priceComp';
+import { motion } from 'framer-motion';
 
 type apiDataProps = {
     id: number,
@@ -81,28 +82,30 @@ function ProductDetailPage() {
                                 )}
                             <div className="product-details-right">
                                 <div className="product-info-container">
-                                    <div className="product-info-main px-4">
-                                        <div className="product-info-title py-2 h3">About</div>
-                                        <div className="product-info-details py-2">{parse(data ? data.description : "")}</div>
-                                    </div>
-                                    <div className="product-more-info p-3 text-end">
-                                        <Button
-                                            className='btn btn-dark btn-link text-dark'
-                                            onClick={() => setOpen(!open)}
-                                            aria-controls="example-collapse-text"
-                                            aria-expanded={open}
-                                        >
-                                            More
-                                        </Button>
-                                        <Collapse in={open}>
-                                            <div id="example-collapse-text" className="text-start">
-                                                <p className='p-0 m-0'>Website: <a href={data?.website} target='_blank'>{data?.website || "Not Available"}</a></p>
-                                                <p className="p-0 m-0">Rating: {data?.rating} / 5</p>
-                                                <p className="p-0 m-0">Released: {data?.released || "Not Available"}</p>
-                                                <p className="p-0 m-0">Developer: {data?.developers[0]?.name || "Not Available"}</p>
-                                            </div>
-                                        </Collapse>
-                                    </div>
+                                    <motion.div initial={{ x: 200 }} animate={{ x: 0 }} transition={{ type: "tween", duration: 1 }} >
+                                        <div className="product-info-main px-4">
+                                            <div className="product-info-title py-2 h3">About</div>
+                                            <div className="product-info-details py-2">{parse(data ? data.description : "")}</div>
+                                        </div>
+                                        <div className="product-more-info p-3 text-end">
+                                            <Button
+                                                className='btn btn-dark btn-link text-dark'
+                                                onClick={() => setOpen(!open)}
+                                                aria-controls="example-collapse-text"
+                                                aria-expanded={open}
+                                            >
+                                                More
+                                            </Button>
+                                            <Collapse in={open}>
+                                                <div id="example-collapse-text" className="text-start">
+                                                    <p className='p-0 m-0'>Website: <a href={data?.website} target='_blank'>{data?.website || "Not Available"}</a></p>
+                                                    <p className="p-0 m-0">Rating: {data?.rating} / 5</p>
+                                                    <p className="p-0 m-0">Released: {data?.released || "Not Available"}</p>
+                                                    <p className="p-0 m-0">Developer: {data?.developers[0]?.name || "Not Available"}</p>
+                                                </div>
+                                            </Collapse>
+                                        </div>
+                                    </motion.div>
                                 </div>
                                 <div className="product-price-cart text-white d-flex justify-content-between align-items-center p-4">
                                     <div className="product-price h4 text-dark">INR {priceComp(data?.id!)}</div>
