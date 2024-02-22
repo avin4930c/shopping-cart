@@ -145,7 +145,7 @@ function ProductPage() {
                                         <div className="row d-flex g-2 gy-4">
                                             {data?.map((item, index) => (
                                                 <div key={index} className="col col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-5" style={{ minWidth: "200px" }}>
-                                                    <motion.div whileHover={{ scale: 1.05 }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ type: "spring", }} >
+                                                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ type: "spring", }} >
                                                         <Card className="card-product-main">
                                                             <Link to={`/productPage/${item.id}`}>
                                                                 <Card.Img loading='lazy' variant="top" src={item.background_image} /> {/*alt = {item.name + "background image"}*/}

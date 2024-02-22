@@ -8,6 +8,7 @@ import { CarouselMain } from './comp/carouselMain';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../App';
 import { AccordionMain } from './comp/accordionMain';
+import { motion } from 'framer-motion';
 
 type apiDataProps = {
   name: string,
@@ -56,7 +57,10 @@ function LandingPage() {
 
       {/* Top Games Section */}
       <section className="top-games p-3 -primary">
-        <header className="top-games-header h2 my-3 mb-3 text-center text-sm-start" style={{ color: "whitesmoke" }}>Top Games</header>
+        <div className="header-main d-flex justify-content-between align-items-center ">
+          <header className="top-games-header h2 my-3 mb-3 text-center text-sm-start" style={{ color: "whitesmoke" }}>Top Games</header>
+          <header className="text-end h2 btn px-3" style={{ color: "black", backgroundColor: "var(--secondary-color)", fontSize: "18px", fontWeight: "600" }}><Link to="/productPage" >Store</Link></header>
+        </div>
         <hr className="hr" style={{ color: "var(--secondary-color" }}></hr>
         <div className="top-games-container row g-4 -primary px-5 d-flex justify-content-center">
           {isLoading ? (<div className='loader'></div>) :
@@ -64,15 +68,19 @@ function LandingPage() {
               <>
                 {data?.map((item, index) => (
                   <div key={index} className="col col-xxl-2 col-xl-3 col-lg-3 col-md-6 col-sm-6"><Link to={`/productPage/${item.id}`}>
-                    <Card className="card-main">
-                      <Card.Img style={{ width: 'auto', height: 'min(350px, 40vh)', maxHeight: '350=px' }} variant="top" src={item.background_image} />
-                      <Card.Body>
-                        <Card.Title>{item.name}</Card.Title>
-                        <Card.Text>
-                          {item.description}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card></Link>
+                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ type: "tween", }} >
+                      <Card className="card-main">
+                        <Card.Img style={{ width: 'auto', height: 'min(350px, 40vh)', maxHeight: '350=px' }} variant="top" src={item.background_image} />
+                        <Card.Body>
+                          <Card.Title>{item.name}</Card.Title>
+                          <Card.Text>
+                            {item.description}
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </motion.div>
+                  </Link>
+
                   </div>
 
                 )
@@ -80,7 +88,7 @@ function LandingPage() {
               </>
             )}
         </div>
-      </section>
+      </section >
 
       <section id="questions" className="text-white accordion p-5">
         <div className="h2 text-center pt-5">Frequently Asked Questions</div>
