@@ -3,16 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Collapse from 'react-bootstrap/Collapse';
 import Carousel from 'react-bootstrap/Carousel';
 import './productDetailPage.css';
-import './comp/loadingScreen.css';
-import { NavBar } from './comp/navBar';
+import '../comp/loadingScreen.css';
+import { NavBar } from '../comp/navBar';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getApiDetails } from './rawg-Api';
+import { getApiDetails } from '../api/rawg-Api';
 import parse from 'html-react-parser';
 import { useContext } from 'react';
-import { CartContext } from '../App';
-import { priceComp } from './comp/priceComp';
+import { CartContext } from '../../App';
+import { priceComp } from '../comp/priceComp';
 import { motion } from 'framer-motion';
 
 type apiDataProps = {

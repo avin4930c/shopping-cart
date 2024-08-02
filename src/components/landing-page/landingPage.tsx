@@ -1,13 +1,13 @@
 import { useState, useEffect, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
-import { Footer } from './comp/footer';
+import { Footer } from '../comp/footer';
 import './landingPage.css';
-import { NavBar } from './comp/navBar';
-import { getApiDetails } from './rawg-Api';
-import { CarouselMain } from './comp/carouselMain';
+import { NavBar } from '../comp/navBar';
+import { getApiDetails } from '../api/rawg-Api';
+import { CarouselMain } from '../comp/carouselMain';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../App';
-import { AccordionMain } from './comp/accordionMain';
+import { CartContext } from '../../App';
+import { AccordionMain } from '../comp/accordionMain';
 import { motion } from 'framer-motion';
 
 type apiDataProps = {

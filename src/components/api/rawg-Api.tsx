@@ -44,7 +44,7 @@ async function getApiDetails({ size = 10, id, searchTitle, searchDetails, orderi
         }
     }
     ordering ? mainQuery += `&ordering=${ordering}` : mainQuery += "";
-    console.log(mainQuery, "Main query");
+    // console.log(mainQuery, "Main query");
     if (setIsLoading) {
         setIsLoading(true);
     }

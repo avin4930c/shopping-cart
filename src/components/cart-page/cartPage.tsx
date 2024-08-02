@@ -1,6 +1,6 @@
-import { CartContext } from '../App';
+import { CartContext } from '../../App';
 import './cartpage.css';
-import { NavBar } from './comp/navBar';
+import { NavBar } from '../comp/navBar';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 

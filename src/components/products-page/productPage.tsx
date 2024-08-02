@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './productPage.css';
-import './comp/loadingScreen.css';
-import { NavBar } from './comp/navBar';
+import '../comp/loadingScreen.css';
+import { NavBar } from '../comp/navBar';
 import { Link } from 'react-router-dom';
-import { getApiDetails } from './rawg-Api';
-import { apiRequestCategory } from './comp/apiRequestCategory';
-import { CartContext } from '../App';
-import { priceComp } from './comp/priceComp';
-import { SideBar } from './comp/sideBar';
+import { getApiDetails } from '../api/rawg-Api';
+import { apiRequestCategory } from '../comp/apiRequestCategory';
+import { CartContext } from '../../App';
+import { priceComp } from '../comp/priceComp';
+import { SideBar } from '../comp/sideBar';
 import { motion } from 'framer-motion';
 
 type productPageProps = {
