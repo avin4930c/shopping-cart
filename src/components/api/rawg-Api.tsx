@@ -1,4 +1,4 @@
-const key = "12b6502c52a3405cbaa7680b30826f54";
+const key = import.meta.env.VITE_RAWG_API_KEY;
 
 type searchDetailsProps = {
     searchTitle?: string,

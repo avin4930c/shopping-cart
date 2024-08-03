@@ -5,7 +5,7 @@ import { ProductDetailPage } from './product-detail-page/productDetailPage.tsx';
 import { ErrorPage } from './errorPage.tsx';
 import { CartPage } from './cart-page/cartPage.tsx';
 import AuthPage from './auth/auth.tsx';
-import ProfilePage from '../profile-page/profilePage.tsx';
+import ProfilePage from './profile-page/profilePage.tsx';
 
 function Route() {
     const router = createBrowserRouter([
