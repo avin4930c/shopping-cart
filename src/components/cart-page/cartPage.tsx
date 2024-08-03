@@ -22,7 +22,7 @@ function CartPage() {
                                     <div className="cart-item-details">
                                         <div className="cart-item-name-container d-flex justify-content-around align-items-center pt-2">
                                             <div className="cart-item-title"><Link to={item.productURL!}>{item.gameName}</Link></div>
-                                            <button className="cart-item-delete btn btn-warning my-1 py-1" onClick={() => handleCartDelete({ id: item.id })}><i className="fa-solid fa-trash"></i></button>
+                                            <button className="cart-item-delete btn btn-warning my-1 py-1" onClick={() => handleCartDelete({ id: item.id, gameName: item.gameName, image: item.image, price: item.price, productURL: item.productURL })}><i className="fa-solid fa-trash"></i></button>
                                         </div>
                                         <div className="cart-item-price">INR {item.price}</div>
                                     </div>
