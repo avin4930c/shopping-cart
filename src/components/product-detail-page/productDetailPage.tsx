@@ -34,6 +34,7 @@ function ProductDetailPage() {
     const [show, setShow] = useState(false);
     const { user, cartItems, handleCartItems, isLoading } = useContext(CartContext);
     const cartItemsId = cartItems?.map((items) => items.id);
+    const price = priceComp(data?.id!);
 
     useEffect(() => {
         async function fetchData() {
@@ -52,7 +53,7 @@ function ProductDetailPage() {
 
     const handleAddToCart = () => {
         if (user) {
-            handleCartItems({ id: data?.id, gameName: data?.name, image: data?.background_image, productURL: `/productPage/${data?.id}` });
+            handleCartItems({ id: data?.id, gameName: data?.name, image: data?.background_image, price: price, productURL: `/productPage/${data?.id}`});
         } else {
             showToast();
         }
@@ -120,7 +121,7 @@ function ProductDetailPage() {
                             </motion.div>
                         </div>
                         <div className="product-price-cart text-white d-flex justify-content-between align-items-center p-4">
-                            <div className="product-price h4 text-dark">INR {priceComp(data?.id!)}</div>
+                            <div className="product-price h4 text-dark">INR {price}</div>
                             <button className="product-cart btn btn-primary" onClick={handleAddToCart}>
                                 {cartItemsId.includes(data?.id) ? (
                                     <i className="bi bi-cart-check bg-primary text-black h3 px-1 m-2 rounded"></i>

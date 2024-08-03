@@ -120,6 +120,7 @@ function App() {
         }
 
         const userDocRef = doc(db, 'users', user.uid);
+        console.log(cartItem, "cartItem");
         try {
             updateDoc(userDocRef, {
                 cartItems: arrayRemove(cartItem),
@@ -133,12 +134,12 @@ function App() {
         setCartItems((prev) => prev.filter((item) => item.id !== cartItem.id));
     }
 
-    function handleCartItems({ id, gameName, image, productURL }: cartItemProps) {
+    function handleCartItems({ id, gameName, image, productURL, price }: cartItemProps) {
         const finalPrice = priceComp(id!);
         cartItemsId = cartItems?.map((items) => items.id); //fixed bug of repeating items in cart
 
         if (cartItemsId.includes(id)) {
-            handleCartDelete({ id });
+            handleCartDelete({ id, gameName, image, productURL, price });
         }
 
         else {
