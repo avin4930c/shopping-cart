@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import './productPage.css';
-import './comp/loadingScreen.css';
-import { NavBar } from './comp/navBar';
+import '../comp/loadingScreen.css';
+import { NavBar } from '../comp/navBar';
 import { Link } from 'react-router-dom';
-import { getApiDetails } from './rawg-Api';
-import { apiRequestCategory } from './comp/apiRequestCategory';
-import { CartContext } from '../App';
-import { priceComp } from './comp/priceComp';
-import { SideBar } from './comp/sideBar';
+import { getApiDetails } from '../api/rawg-Api';
+import { apiRequestCategory } from '../comp/apiRequestCategory';
+import { CartContext } from '../../App';
+import { priceComp } from '../comp/priceComp';
+import { SideBar } from '../comp/sideBar';
 import { motion } from 'framer-motion';
 
 type productPageProps = {
@@ -132,8 +132,6 @@ function ProductPage() {
                                 <option id="mostPopular" selected={ordering === "mostPopular"}>Popular</option>
                                 <option id="-rating" selected={ordering === "-rating"}>Top Rated</option> {/*change the options*/}
                                 <option id="rating" selected={ordering === "rating"}>Least Rated</option>
-                                <option>Highest Price</option>
-                                <option>Lowest Price</option>
                             </select>
                         </div>
                     </div>
@@ -164,7 +162,7 @@ function ProductPage() {
                                                                 <Card.Text className="mt-3">
                                                                     <div className="price-cart d-flex justify-content-between">
                                                                         <div className="price-left">INR {priceComp(item.id)}</div>
-                                                                        <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 text-black px-2 rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
+                                                                        <div className={(cartItemsID.includes(item.id)) ? "" : "cart-right"} onClick={() => handleCartItems({ id: item.id, gameName: item.name, image: item.background_image, productURL: `/productPage/${item.id}` })}>{(cartItemsID.includes(item.id)) ? (<i className="bi bi-cart-check bg-warning h4 px-2 text-black rounded"></i>) : (<i className="bi bi-cart"></i>)}</div>
                                                                     </div>
                                                                 </Card.Text>
                                                             </Card.Body>

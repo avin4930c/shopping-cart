@@ -1,4 +1,4 @@
-const key = "12b6502c52a3405cbaa7680b30826f54";
+const key = import.meta.env.VITE_RAWG_API_KEY;
 
 type searchDetailsProps = {
     searchTitle?: string,
@@ -44,7 +44,7 @@ async function getApiDetails({ size = 10, id, searchTitle, searchDetails, orderi
         }
     }
     ordering ? mainQuery += `&ordering=${ordering}` : mainQuery += "";
-    console.log(mainQuery, "Main query");
+    // console.log(mainQuery, "Main query");
     if (setIsLoading) {
         setIsLoading(true);
     }

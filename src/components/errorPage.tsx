@@ -10,7 +10,7 @@ function ErrorPage() {
             <p>Sorry, an unexpected error has occurred.</p>
             <Link to="/">Head Back to home page</Link>
             <p>
-                <i>{error.statusText || error.message}</i>
+                <i>{error?.statusText || error?.message}</i>
             </p>
         </div>
     );

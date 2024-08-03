@@ -3,7 +3,7 @@ import './navBar.css';
 import { Link } from 'react-router-dom';
 import { useState, useContext, useEffect, useRef } from 'react';
 import { CartContext } from '../../App';
-import { getApiDetails } from '../rawg-Api';
+import { getApiDetails } from '../api/rawg-Api';
 
 type productPageProps = {
   name: string,
@@ -41,8 +41,6 @@ function NavBar({ pageName }: { pageName: string }) {
   }
 
   useEffect(() => {
-    console.log(query, "Query");
-    console.log(showResults, "Show results");
     async function fetchData() {
       let response = await getApiDetails({ searchTitle: "search", searchDetails: { mainTitle: query } });
       let finalResponse = response.map((item: productPageProps) => {
@@ -88,19 +86,20 @@ function NavBar({ pageName }: { pageName: string }) {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
-              {(pageName === "landingPage") && (
-                <>
-                  <Nav.Link href="#about-us" className="text-light navlink-text mx-2">About Us</Nav.Link>
-                  <Nav.Link href="#questions" className="text-light navlink-text mx-2">Questions</Nav.Link>
-                </>
-              )
-              }
               {(pageName === "landingPage") || (
                 <>
                   <Link to="/"><Nav.Link href="/" className='text-light navlink-text mx-2'>Home</Nav.Link></Link>
                 </>
               )}
               <Link to="/productPage"><Nav.Link href="#store" className="text-light navlink-text mx-2">Store</Nav.Link></Link>
+              {(pageName === "landingPage") && (
+                <>
+                  <Nav.Link href="#about-us" className="text-light navlink-text mx-2">About Us</Nav.Link>
+                </>
+              )
+              }
+              <Link to="/profile"><Nav.Link href="#profile" className="text-light navlink-text mx-2">Profile</Nav.Link></Link>
+              
               <Link to="/cart"><Nav.Link href="cart" className="text-light navlink-text mx-2">Cart <i className="bi bi-cart"></i>
                 <span className="badge ms-2" style={{ backgroundColor: "var(--secondary-color)" }}>{cartItems.length}</span></Nav.Link></Link>
             </Nav>
