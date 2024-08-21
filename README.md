@@ -14,11 +14,11 @@ A dynamic and responsive shopping cart application built with:
 
 ### Version 2.0
 
-- **Firebase Integration**: Integrated Firebase for user authentication and personalized cart management.
-- **Profile Section**: Added a profile section where users can manage their personal details and view their cart.
-- **User-Specific Cart**: Each user now has their own cart, stored and managed securely via Firebase.
-- **Error Handling**: Improved error handling for cart operations and authentication processes.
-- **Environment Configuration**: Updated project to use environment variables for Firebase configuration.
+- **Firebase Integration**
+- **Profile Section**
+- **User-Specific Cart**
+- **Error Handling**
+- **Environment Configuration**
 
 ## Key Features
 
